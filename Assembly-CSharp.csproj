@@ -61,7 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Chisel.cs" />
+    <Compile Include="Assets\Scripts\Hammer.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\SculptableParts.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
