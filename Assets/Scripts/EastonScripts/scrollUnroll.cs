@@ -24,15 +24,26 @@ public class scrollUnroll : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space)){
             rolled = !rolled;
-            prompt++;
+            if (rolled)
+            {
+                prompt++;
+            }
         }
 
         if(rolled){
             newPos = new Vector3(transform.position.x, startingHeight, transform.position.z);
-
-        }else{
+            for (int i = 0; i < promptImages.Count; i++)
+            {
+                //if(i)
+            }
+        }
+        else
+        {
             newPos = new Vector3(transform.position.x, startingHeight - dropHeight, transform.position.z);
-            
+            for (int i = 0; i < promptImages.Count; i++)
+            {
+
+            }
         }
 
         transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * speed);
