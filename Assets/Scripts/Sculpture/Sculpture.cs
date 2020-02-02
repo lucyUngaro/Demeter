@@ -5,12 +5,24 @@ using UnityEngine;
 public class Sculpture : MonoBehaviour
 {
     List<SculptureSequence> sequences = new List<SculptureSequence>();
-    private int sculptureNum;
+    private SculptureSettings thisSculpture;
+
+    // approval
+    private int approval;
+
+    // falling
+    private float fallAmount;
+    private bool falling;
+    private float fallDistance;
+    private float fallDestination;
+    private float startTime;
+
     private Manager manager;
 
-    public void Init(int num, Manager man)
+    public void Init(SculptureSettings ss, Manager man)
     {
-        sculptureNum = num;
+        thisSculpture = ss;
+        approval = thisSculpture.initialApproval;
         manager = man;
         InitSequences(transform);    
     }
@@ -26,7 +38,7 @@ public class Sculpture : MonoBehaviour
             {
                 child.gameObject.AddComponent<SculptureSequence>();
 
-                var sequence = child.gameObject.GetComponent<SculptureSequence>()   ;
+                var sequence = child.gameObject.GetComponent<SculptureSequence>();
                 sequence.SetupParts(sequences.Count);
                 sequences.Add(sequence);
 
@@ -36,6 +48,22 @@ public class Sculpture : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (falling)
+        {
+            float t = (Time.time - startTime) / fallDistance;
+
+            transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, fallDestination), t);
+
+            if (transform.position.y == fallDestination)
+            {
+                falling = false;
+            }
+        }
+    }
+
+  
     public void SequenceComplete (SculptureSequence seq)
     {
         sequences.Remove(seq);
@@ -46,12 +74,43 @@ public class Sculpture : MonoBehaviour
     {
         if (transform.childCount == 0 || (transform.childCount == 1 && transform.GetChild(0).gameObject.name == "DestroyMe")) // sculpture has been destroyed, add rubble
         {
-            GameObject rubble = Instantiate(new GameObject(), SculptureData.GlobalSculptureData.transform.position, SculptureData.GlobalSculptureData.transform.rotation, transform);
-            rubble.AddComponent<SpriteRenderer>().sprite = SculptureData.GlobalSculptureData.rubble[sculptureNum];
+            GameObject rubble = Instantiate(new GameObject(), GameData.GlobalGameData.transform.position, GameData.GlobalGameData.transform.rotation, transform);
+            rubble.AddComponent<SpriteRenderer>().sprite = thisSculpture.rubble;
 
             // TODO: wait for button press
-            manager.SendOutStatue();
+            manager.SendOutStatue(approval);
         }
 
+    }
+
+    public void CompleteEvent(GameEvent gameEvent)
+    {
+        switch (gameEvent.eventType)
+        {
+            case GameEvent.eventTypes.fall:
+                Fall(gameEvent.eventValue);
+                break;
+            case GameEvent.eventTypes.points:
+                UpdateApproval(gameEvent.eventValue);
+                break;
+                
+
+        }
+    }
+
+    private void UpdateApproval(int points)
+    {
+        approval += points;
+
+        Debug.Log(approval);
+    }
+
+    private void Fall(float value)
+    {
+        fallDistance = value;
+        fallDestination = transform.position.y - value;
+        falling = true;
+        startTime = Time.time;
+        fallAmount = value;
     }
 }

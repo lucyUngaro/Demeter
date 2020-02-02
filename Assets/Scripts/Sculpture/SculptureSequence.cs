@@ -45,9 +45,12 @@ public class SculptureSequence : MonoBehaviour
     public void OnPartDestroyed()
     {
         parts.Remove(part);
+
+        // is there an event for the destruction of this sprite?
+        CheckForEvent();
         Destroy(part.gameObject);
 
-        part = GetNextPart();
+        part = GetNextPart(part.transform.localPosition);
         CheckIfSequenceComplete();
     }
     
@@ -62,12 +65,26 @@ public class SculptureSequence : MonoBehaviour
         }
     }
 
-    SculptablePart GetNextPart()
+    private void CheckForEvent()
+    {
+        List<GameEvent> allEvents = GameData.GlobalGameData.events;
+
+        for (var i = 0; i < allEvents.Count; i++)
+        {
+            GameEvent gameEvent = allEvents[i];
+            if (gameEvent.sprite == part.GetComponent<SpriteRenderer>().sprite)
+            {
+                gameObject.GetComponentInParent<Sculpture>().CompleteEvent(gameEvent);
+            }
+        }
+    }
+
+    private SculptablePart GetNextPart(Vector2 pos = default)
     {
         if (parts.Count > 0)
         {
             part = parts[0];
-            part.gameObject.SetActive(true);
+            part.Awaken(pos);
 
             return part;
         }

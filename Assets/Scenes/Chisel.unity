@@ -360,22 +360,59 @@ MonoBehaviour:
       position: {x: 0, y: 1, z: 0}
       scale: {x: 0.5, y: 0.5, z: 1}
       rotation: {x: 0, y: 0, z: 0, w: 0}
-    sculptures:
-    - {fileID: 6094826824033858105, guid: 41264d15cbc977e4b8581f7d515df4c2, type: 3}
-    - {fileID: 299178701515508432, guid: 7374f24a4b22757469b9e4796d4e187a, type: 3}
-    - {fileID: 6531941407692132853, guid: c31a4262319697443a115899493ed17b, type: 3}
-    - {fileID: 4623715690489991004, guid: 7771014532403694e8193437fcb30bfe, type: 3}
-    - {fileID: 7543320723208589689, guid: 6299844ae91f6eb4892cf0c0891f4121, type: 3}
-    rubble:
-    - {fileID: 21300000, guid: f1ed800e1e199d642868e8aaaee2ae12, type: 3}
-    - {fileID: 21300000, guid: 5f91a1f8f5d8de649bdbede1230ac710, type: 3}
-    - {fileID: 21300000, guid: 7dc821db37e702e448a820cedc59119f, type: 3}
-    - {fileID: 21300000, guid: 56a0f2eee88a3284e9eb5bae62233b63, type: 3}
-    - {fileID: 21300000, guid: 17391b00e343a2241a2780b5865249eb, type: 3}
+    sculptureSettings:
+    - sculpture: {fileID: 6094826824033858105, guid: 41264d15cbc977e4b8581f7d515df4c2,
+        type: 3}
+      rubble: {fileID: 21300000, guid: f1ed800e1e199d642868e8aaaee2ae12, type: 3}
+      initialApproval: -3
+      positiveResponse: You did what you were told well enough.
+      negativeResponse: My priceless art! How could you!
+    - sculpture: {fileID: 299178701515508432, guid: 7374f24a4b22757469b9e4796d4e187a,
+        type: 3}
+      rubble: {fileID: 21300000, guid: 5f91a1f8f5d8de649bdbede1230ac710, type: 3}
+      initialApproval: 0
+      positiveResponse: 
+      negativeResponse: 
+    - sculpture: {fileID: 6531941407692132853, guid: c31a4262319697443a115899493ed17b,
+        type: 3}
+      rubble: {fileID: 21300000, guid: 7dc821db37e702e448a820cedc59119f, type: 3}
+      initialApproval: -3
+      positiveResponse: 
+      negativeResponse: 
+    - sculpture: {fileID: 4623715690489991004, guid: 7771014532403694e8193437fcb30bfe,
+        type: 3}
+      rubble: {fileID: 21300000, guid: 56a0f2eee88a3284e9eb5bae62233b63, type: 3}
+      initialApproval: 0
+      positiveResponse: 
+      negativeResponse: 
+    - sculpture: {fileID: 7543320723208589689, guid: 6299844ae91f6eb4892cf0c0891f4121,
+        type: 3}
+      rubble: {fileID: 21300000, guid: 17391b00e343a2241a2780b5865249eb, type: 3}
+      initialApproval: 3
+      positiveResponse: 
+      negativeResponse: 
     events:
     - eventType: 1
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 6168228b41a792b408916bc68d4368b8, type: 3}
+    - eventType: 0
       eventValue: 1
-      sprite: {fileID: 0}
+      sprite: {fileID: 21300000, guid: 02c7e0e266b3cb440b307fc81ef5f8b9, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: 6978f5ea4c97eef4cabd63e6fc814603, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: e38e88da83111ca4abfc4d99486af819, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 2de6b3a87ed8de04aab79c2fb3068a95, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: ff3e7e3805f280c4c9fbfadc307d94bd, type: 3}
+    - eventType: 0
+      eventValue: -5
+      sprite: {fileID: 21300000, guid: 2fd14e2d2baed8a419e27e2de423209b, type: 3}
 --- !u!4 &286375935
 Transform:
   m_ObjectHideFlags: 0

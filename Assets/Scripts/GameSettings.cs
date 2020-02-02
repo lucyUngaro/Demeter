@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct GameEvent
 {
-    public enum eventTypes { negativePoints, positivePoints, fall };
+    public enum eventTypes { points, fall };
 
     public eventTypes eventType;
     public int eventValue;
@@ -21,22 +21,31 @@ public struct TransformPart
 }
 
 [System.Serializable]
-public class SculptureData
+public struct SculptureSettings
+{
+    public GameObject sculpture;
+    public Sprite rubble;
+    public int initialApproval;
+    public string positiveResponse;
+    public string negativeResponse;
+}
+
+[System.Serializable]
+public class GameData
 {
     public TransformPart transform;
-    public List<GameObject> sculptures;
-    public List<Sprite> rubble;
+    public List<SculptureSettings> sculptureSettings;
     public List<GameEvent> events;
 
-    public static SculptureData GlobalSculptureData = null;
+    public static GameData GlobalGameData = null;
 
-    public SculptureData()
+    public GameData()
     {
-        GlobalSculptureData = this;
+        GlobalGameData = this;
     }
 }
 
 public class GameSettings : MonoBehaviour
 {
-    public SculptureData sculptureData = new SculptureData();
+    public GameData sculptureData = new GameData();
 }
