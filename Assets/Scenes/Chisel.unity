@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chiselSpeed: 5
+  handShake: 0.2
 --- !u!212 &844667001
 SpriteRenderer:
   m_ObjectHideFlags: 0
