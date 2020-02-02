@@ -44,3 +44,6 @@ TagManager:
   - name: Chisel
     uniqueID: 3380539523
     locked: 0
+  - name: Hammer
+    uniqueID: 70500179
+    locked: 0
