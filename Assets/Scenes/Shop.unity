@@ -466,7 +466,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 17.4, y: 19.99}
+    oldSize: {x: 17.4, y: 15.98}
     newSize: {x: 17.4, y: 19.99}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -512,6 +512,7 @@ MonoBehaviour:
   requiredVelocity: 5
   maxRecoil: 25
   recoilDuration: 0.15
+  rotationThreshold: 5
 --- !u!212 &371831306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1103,8 +1104,8 @@ GameObject:
   - component: {fileID: 704909426}
   - component: {fileID: 704909430}
   - component: {fileID: 704909429}
-  - component: {fileID: 704909432}
   - component: {fileID: 704909431}
+  - component: {fileID: 704909432}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1358,9 +1359,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 704909425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3b27001d3d7436887a2c7e51469988, type: 3}
+  m_Script: {fileID: 11500000, guid: 7392a39fd4eb0a940b710bc6ccdb63ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondsUntilChime: 0
+  chime: {fileID: 0}
 --- !u!1 &745290811
 GameObject:
   m_ObjectHideFlags: 0
