@@ -28,8 +28,6 @@ public struct SculptureSettings
     public int initialApproval;
     public string positiveResponse;
     public string negativeResponse;
-    public Sprite positiveResponseImage;
-    public Sprite negativeResponseImage;
 }
 
 [System.Serializable]

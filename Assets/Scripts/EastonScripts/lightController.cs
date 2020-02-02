@@ -56,14 +56,20 @@ public class lightController : MonoBehaviour
         //135 - 225 midnight to sunrise
         if(TimeControl.time/45 <= 1){
             currentColor = Color.Lerp(sunrise, midday, TimeControl.time / 45);
+            TimeAmbience.timeAmbience.playDaySound();
         }else if(TimeControl.time/90 < 1){
             currentColor = Color.Lerp(midday, sunset, TimeControl.time/45 - 1);
-        }else if (TimeControl.time/135 < 1)
+            TimeAmbience.timeAmbience.playDaySound();
+        }
+        else if (TimeControl.time/135 < 1)
         {
             currentColor = Color.Lerp(sunset, midnight, TimeControl.time/45 - 2);
-        }else if (TimeControl.time/225 < 1)
+            TimeAmbience.timeAmbience.playNightSound();
+        }
+        else if (TimeControl.time/225 < 1)
         {
             currentColor = Color.Lerp(midnight, sunrise, TimeControl.time/45 - 3);
+            TimeAmbience.timeAmbience.playNightSound();
         }
 
     }

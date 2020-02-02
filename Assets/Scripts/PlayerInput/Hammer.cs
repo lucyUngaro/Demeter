@@ -85,6 +85,8 @@ public class Hammer : MonoBehaviour
             if(!rocks.isPlaying){
                 rocks.Play();
             }
+
+            GetComponent<AudioMan>().playRandomSound();
         }
     }
 }
