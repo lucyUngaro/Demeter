@@ -16,6 +16,7 @@ public class Hammer : MonoBehaviour
 
     private Rigidbody2D hammerBody;
     private Vector3 previousVelocity;
+    private Vector3 previousVelocity2;
     private float recoilTime = 0f;
     private float recoilForceX;
     private float recoilForceY;
@@ -31,6 +32,7 @@ public class Hammer : MonoBehaviour
     {
         if (recoilTime == 0)
         {
+            previousVelocity2 = previousVelocity;
             previousVelocity = hammerBody.velocity;
 
             Vector3 mouseMovement = new Vector3(Input.GetAxisRaw("Mouse X") * cursorSensitivity, Input.GetAxisRaw("Mouse Y") * cursorSensitivity, 0f);
@@ -64,7 +66,7 @@ public class Hammer : MonoBehaviour
 
     public void CollidedWithChisel(Chisel chisel)
     {
-        if (chisel && previousVelocity.magnitude >= requiredVelocity) // if it was moving at the right velocity
+        if (chisel && previousVelocity.magnitude >= requiredVelocity && previousVelocity.magnitude >= requiredVelocity) // if it was moving at the right velocity
         {
             recoilForceX = Mathf.Clamp(-previousVelocity.x, -maxRecoil, maxRecoil);
             recoilForceY = Mathf.Clamp(-previousVelocity.y, -maxRecoil, maxRecoil);
