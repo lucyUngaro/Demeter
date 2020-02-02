@@ -21,6 +21,8 @@ public class Hammer : MonoBehaviour
     private float recoilForceX;
     private float recoilForceY;
 
+    public ParticleSystem rocks;
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -79,6 +81,10 @@ public class Hammer : MonoBehaviour
             transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z - recoilForceX), recoilDuration).OnComplete(() => transform.DORewind());
 
             GetComponent<SpriteRenderer>().sprite = hammerStrike;
+
+            if(!rocks.isPlaying){
+                rocks.Play();
+            }
         }
     }
 }
