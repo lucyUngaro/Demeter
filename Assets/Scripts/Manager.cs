@@ -7,16 +7,16 @@ public class Manager : MonoBehaviour
 {
     private int currentStatueNum = 0;
     private GameObject currentStatue;
-    private List <GameObject> sculptures;
+    private List <SculptureSettings> sculptureSettings;
 
     private void Awake()
     {
-        sculptures = SculptureData.GlobalSculptureData.sculptures;
+        sculptureSettings = GameData.GlobalGameData.sculptureSettings;
 
         CreateNextStatue();
     }
 
-    public void SendOutStatue()
+    public void SendOutStatue(int approval)
     {
         Destroy(currentStatue);
         CreateNextStatue();
@@ -24,16 +24,16 @@ public class Manager : MonoBehaviour
 
     private void CreateNextStatue()
     {
-        if (sculptures.Count > currentStatueNum)
+        if (sculptureSettings.Count > currentStatueNum)
         {
-            currentStatue = Instantiate(sculptures[currentStatueNum]);
+            currentStatue = Instantiate(sculptureSettings[currentStatueNum].sculpture);
 
             if (!currentStatue.GetComponent<Sculpture>())
             {
                 currentStatue.AddComponent<Sculpture>();
             }
 
-            currentStatue.GetComponent<Sculpture>().Init(currentStatueNum, this);
+            currentStatue.GetComponent<Sculpture>().Init(sculptureSettings[currentStatueNum], this);
             currentStatueNum++;
         }
     }
