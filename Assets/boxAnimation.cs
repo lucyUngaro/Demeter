@@ -6,8 +6,11 @@ public class boxAnimation : MonoBehaviour
 {
     public List<Sprite> boxSprites = new List<Sprite>();
     public float holdTimer;
-    public bool confirmed, flying, sent;
+    public float waitTimer = 0;
+    public float waitTimerDuration = 2;
+    public bool confirmed, flying, sent, waiting;
     public Vector3 startPos, lerpPos;
+    public Manager gameMan;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,7 @@ public class boxAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space)){
+        if(Input.GetKey(KeyCode.Space) && !waiting){
             holdTimer += Time.deltaTime;
         }else{
             holdTimer = 0;
@@ -41,6 +44,13 @@ public class boxAnimation : MonoBehaviour
             if(holdTimer>3.5f){
                 flying = true;
             }
+
+            FindObjectOfType<Manager>().SendOutStatue();
+
+            holdTimer = 0;
+            confirmed = false;
+            waitTimer = waitTimerDuration;
+            waiting = true;
         }
 
         if(flying){
@@ -52,9 +62,16 @@ public class boxAnimation : MonoBehaviour
             }
         }
 
-        Debug.Log(holdTimer * 3);
+        if (waitTimer > 0)
+        {
+            waitTimer -= Time.deltaTime;
 
-
+            if (waitTimer<= 0)
+            {
+                waitTimer = 0;
+                waiting = false;
+            }
+        }
 
 
     }

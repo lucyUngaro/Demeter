@@ -8,7 +8,7 @@ public class Sculpture : MonoBehaviour
     private SculptureSettings thisSculpture;
 
     // approval
-    private int approval;
+    public int approval;
 
     // falling
     private float fallAmount;
@@ -78,7 +78,7 @@ public class Sculpture : MonoBehaviour
             rubble.AddComponent<SpriteRenderer>().sprite = thisSculpture.rubble;
 
             // TODO: wait for button press
-            manager.SendOutStatue(approval);
+            manager.SendOutStatue();
         }
 
     }

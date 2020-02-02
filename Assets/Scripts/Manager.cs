@@ -13,15 +13,17 @@ public class Manager : MonoBehaviour
     private void Awake()
     {
         sculptureSettings = GameData.GlobalGameData.sculptureSettings;
+        CreateNextStatue();
     }
 
-    public void SendOutStatue(int approval)
+    public void SendOutStatue()
     {
+        int approval = currentStatue.GetComponent<Sculpture>().approval;
         Destroy(currentStatue);
         scroll.rolled = true;
         //roll scroll set to true
         //wait a second then unroll scroll and create next statue
-        //CreateNextStatue();
+        StartCoroutine("WaitToCreateNext"); 
     }
 
     public void CreateNextStatue()
@@ -38,5 +40,12 @@ public class Manager : MonoBehaviour
             currentStatue.GetComponent<Sculpture>().Init(sculptureSettings[currentStatueNum], this);
             currentStatueNum++;
         }
+    }
+
+    IEnumerator WaitToCreateNext()
+    {
+       yield return new WaitForSeconds(1);
+
+        CreateNextStatue();
     }
 }

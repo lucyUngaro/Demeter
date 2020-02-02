@@ -28,12 +28,6 @@ public class scrollUnroll : MonoBehaviour
     {
         Vector3 newPos;
 
-
-        if(Input.GetKeyDown(KeyCode.Space)){
-            rolled = !rolled;
-
-        }
-
         if(rolled){
             newPos = new Vector3(transform.position.x, startingHeight, transform.position.z);
             if(!promptChanged && (Vector3.Distance(newPos, transform.position) < 0.1)){
@@ -58,7 +52,6 @@ public class scrollUnroll : MonoBehaviour
 
         if (promptChanged){
             rolled = false;
-            manager.CreateNextStatue();
         }
 
         transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * speed);
