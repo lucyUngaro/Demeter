@@ -12658,7 +12658,7 @@ MonoBehaviour:
   currentPrompt: 0
   promptImages: []
   promptChanged: 0
-  manager: {fileID: 0}
+  manager: {fileID: 1417483864}
 --- !u!212 &6188542383177226425
 SpriteRenderer:
   m_ObjectHideFlags: 0
