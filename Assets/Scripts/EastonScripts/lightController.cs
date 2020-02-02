@@ -20,6 +20,12 @@ public class lightController : MonoBehaviour
 
     }
 
+    public void AddSprite(SpriteRenderer sprite)
+    {
+        lightSprites.Add(sprite);
+        spriteAlphas.Add(sprite.color.a);
+    }
+
     // Update is called once per frame
     void Update()
     {

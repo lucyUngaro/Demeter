@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69485480}
   m_LocalRotation: {x: -0, y: -0, z: 0.2936504, w: 0.9559129}
-  m_LocalPosition: {x: -6.09, y: 0.65, z: 0}
+  m_LocalPosition: {x: -5.96, y: 0.04, z: 0}
   m_LocalScale: {x: 1.141698, y: 2.4035747, z: 2.4035747}
   m_Children: []
   m_Father: {fileID: 194838899}
@@ -449,8 +449,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &371831303
-BoxCollider2D:
+--- !u!70 &371831303
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -462,19 +462,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.240742, y: 5.1718903}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 17.4, y: 15.98}
-    newSize: {x: 17.4, y: 19.99}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.8744917, y: 8.717014}
-  m_EdgeRadius: 0
+  m_Offset: {x: 1.4030529, y: 6.168991}
+  m_Size: {x: 4.30567, y: 4.305671}
+  m_Direction: 0
 --- !u!50 &371831304
 Rigidbody2D:
   serializedVersion: 4
@@ -513,6 +503,8 @@ MonoBehaviour:
   maxRecoil: 25
   recoilDuration: 0.15
   rotationThreshold: 5
+  hammerStrike: {fileID: 21300000, guid: bf0778796d887d746a36233a7ff1f26e, type: 3}
+  idle: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
 --- !u!212 &371831306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1291,8 +1283,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745290811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.66, y: 5.97, z: 0}
-  m_LocalScale: {x: 2.4035747, y: 2.4035747, z: 2.4035747}
+  m_LocalPosition: {x: 4.66, y: 5.58, z: 0}
+  m_LocalScale: {x: 2.4035747, y: 1.9480222, z: 2.4035747}
   m_Children: []
   m_Father: {fileID: 194838899}
   m_RootOrder: 1
