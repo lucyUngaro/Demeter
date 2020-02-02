@@ -26,12 +26,21 @@ public class lightController : MonoBehaviour
         spriteAlphas.Add(sprite.color.a);
     }
 
+    public void RemoveSprite(SpriteRenderer sprite)
+    {
+        lightSprites.Remove(sprite);
+    }
+
     // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < lightSprites.Count; i++){
-            lightSprites[i].color = Color.Lerp(lightSprites[i].color, currentColor, Time.deltaTime);
-            lightSprites[i].color = new Color(lightSprites[i].color.r, lightSprites[i].color.g, lightSprites[i].color.b, spriteAlphas[i]);
+
+            if (lightSprites[i] != null)
+            {
+                lightSprites[i].color = Color.Lerp(lightSprites[i].color, currentColor, Time.deltaTime);
+                lightSprites[i].color = new Color(lightSprites[i].color.r, lightSprites[i].color.g, lightSprites[i].color.b, spriteAlphas[i]);
+            }
         }
 
         for (int i = 0; i < lightParts.Count; i++)

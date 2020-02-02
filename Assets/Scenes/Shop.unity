@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_Size: {x: 3.14, y: 0.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &69485480
@@ -584,7 +584,7 @@ SpriteRenderer:
   m_Size: {x: 7.63, y: 10.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &371831302
@@ -607,8 +607,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &371831303
-BoxCollider2D:
+--- !u!70 &371831303
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -620,19 +620,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.240742, y: 5.1718903}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.45, y: 19.53}
-    newSize: {x: 17.4, y: 19.99}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.8744917, y: 8.717014}
-  m_EdgeRadius: 0
+  m_Offset: {x: 1.3825746, y: 5.847102}
+  m_Size: {x: 4.830117, y: 4.950343}
+  m_Direction: 0
 --- !u!50 &371831304
 Rigidbody2D:
   serializedVersion: 4
@@ -671,8 +661,8 @@ MonoBehaviour:
   maxRecoil: 25
   recoilDuration: 0.15
   rotationThreshold: 5
-  hammerStrike: {fileID: 0}
-  idle: {fileID: 0}
+  hammerStrike: {fileID: 21300000, guid: bf0778796d887d746a36233a7ff1f26e, type: 3}
+  idle: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
 --- !u!212 &371831306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -912,7 +902,7 @@ SpriteRenderer:
   m_Size: {x: 7.43, y: 2.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &580210010
@@ -1307,7 +1297,7 @@ SpriteRenderer:
   m_Size: {x: 7.87, y: 9.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &704909425
@@ -11875,7 +11865,7 @@ SpriteRenderer:
   m_Size: {x: 7.85, y: 5.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &201964176889657654

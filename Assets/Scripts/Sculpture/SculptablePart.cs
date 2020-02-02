@@ -30,6 +30,8 @@ public class SculptablePart : MonoBehaviour
     public void OnHit()
     {
         // Play destroy animation
+        FindObjectOfType<lightController>().RemoveSprite(GetComponent<SpriteRenderer>());
+
         Destroy(gameObject);
         GetComponentInParent<SculptureSequence>().OnPartDestroyed();
     }
