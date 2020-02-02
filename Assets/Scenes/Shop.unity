@@ -6660,18 +6660,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunrise: {r: 0.93333334, g: 0.7719882, b: 0.4196078, a: 1}
-  midday: {r: 1, g: 0.9915745, b: 0.8820755, a: 1}
-  sunset: {r: 0.9528302, g: 0.13034001, b: 0.28449494, a: 1}
-  midnight: {r: 0.6994037, g: 0.70178074, b: 0.8773585, a: 1}
-  currentColor: {r: 0.9333334, g: 0.9960785, b: 0.7607844, a: 1}
+  midday: {r: 1, g: 0.9942172, b: 0.88235295, a: 1}
+  sunset: {r: 0.9433962, g: 0.2963127, b: 0.25364897, a: 1}
+  midnight: {r: 0.6901922, g: 0.6944662, b: 0.8867924, a: 1}
+  currentColor: {r: 0.9294118, g: 0.7686275, b: 0.4431373, a: 1}
   lightSprites:
   - {fileID: 1091432383}
   - {fileID: 650356004}
   - {fileID: 1633791369}
-  - {fileID: 615386082}
   spriteAlphas: []
   lightParts:
   - {fileID: 1887056974}
+  - {fileID: 1629734800}
 --- !u!4 &1698082227
 Transform:
   m_ObjectHideFlags: 0
@@ -11396,12 +11396,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e24a7648c25b1846b6d81ecb7e24361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunrise: {r: 0, g: 0, b: 0, a: 0}
-  midday: {r: 0, g: 0, b: 0, a: 0}
-  sunset: {r: 0, g: 0, b: 0, a: 0}
-  midnight: {r: 0, g: 0, b: 0, a: 0}
-  currentColor: {r: 0, g: 0, b: 0, a: 0}
-  lightSprites: []
+  sunrise: {r: 0.8414472, g: 0.9270666, b: 0.9339623, a: 1}
+  midday: {r: 0.22694907, g: 0.58005524, b: 0.9433962, a: 1}
+  sunset: {r: 0.8784314, g: 0.28808427, b: 0.2705882, a: 1}
+  midnight: {r: 0.70127267, g: 0.70487833, b: 0.9716981, a: 1}
+  currentColor: {r: 0.8470589, g: 0.92549026, b: 0.9333334, a: 1}
+  lightSprites:
+  - {fileID: 1104891312}
   spriteAlphas: []
   lightParts: []
 --- !u!1 &728514814017378113
@@ -16511,12 +16512,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e24a7648c25b1846b6d81ecb7e24361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunrise: {r: 0, g: 0, b: 0, a: 0}
-  midday: {r: 0, g: 0, b: 0, a: 0}
-  sunset: {r: 0, g: 0, b: 0, a: 0}
-  midnight: {r: 0, g: 0, b: 0, a: 0}
-  currentColor: {r: 0, g: 0, b: 0, a: 0}
-  lightSprites: []
+  sunrise: {r: 0.6415094, g: 0.29393345, b: 0.23905303, a: 1}
+  midday: {r: 0.33343717, g: 0.35284296, b: 0.5566038, a: 1}
+  sunset: {r: 0.4339623, g: 0.120772526, b: 0.2368443, a: 1}
+  midnight: {r: 0.13419062, g: 0.0748932, b: 0.31132078, a: 1}
+  currentColor: {r: 0.63529414, g: 0.29411766, b: 0.2509804, a: 1}
+  lightSprites:
+  - {fileID: 1533393369}
+  - {fileID: 1021469803}
+  - {fileID: 580210011}
+  - {fileID: 596431937}
+  - {fileID: 777118480}
   spriteAlphas: []
   lightParts: []
 --- !u!1 &4191012955795266519
@@ -16594,7 +16600,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 61d583c97a934e44f9ca53c6ed0e03b6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8679245, g: 0.81928796, b: 0.7328231, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
