@@ -215,6 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorSensitivity: 0.8
   requiredVelocity: 5
+  maxRecoil: 25
+  recoilDuration: 0.15
 --- !u!212 &225508973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -418,8 +420,6 @@ GameObject:
   - component: {fileID: 844667001}
   - component: {fileID: 844667000}
   - component: {fileID: 844667004}
-  - component: {fileID: 844667003}
-  - component: {fileID: 844667005}
   m_Layer: 0
   m_Name: Chisel
   m_TagString: Untagged
@@ -440,7 +440,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chiselSpeed: 5
-  selectedPart: {fileID: 0}
 --- !u!212 &844667001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -498,37 +497,13 @@ Transform:
   m_GameObject: {fileID: 844666999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.34, y: 0.11056, z: 0}
-  m_LocalScale: {x: 0.27473354, y: 0.27473354, z: 0.27473354}
-  m_Children: []
+  m_LocalScale: {x: 0.22683924, y: 0.22683924, z: 0.22683924}
+  m_Children:
+  - {fileID: 884728148}
+  - {fileID: 881787116}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &844667003
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844666999}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.4181666, y: -4.2249455}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.68, y: 12.09}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.3150437, y: 2.1964083}
-  m_EdgeRadius: 0
 --- !u!50 &844667004
 Rigidbody2D:
   serializedVersion: 4
@@ -550,32 +525,146 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!61 &844667005
+--- !u!1 &881787115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881787116}
+  - component: {fileID: 881787118}
+  - component: {fileID: 881787117}
+  m_Layer: 0
+  m_Name: HammerCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &881787116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881787115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.72, y: 4.57, z: 0}
+  m_LocalScale: {x: 2.4035747, y: 2.4035747, z: 2.4035747}
+  m_Children: []
+  m_Father: {fileID: 844667002}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &881787117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881787115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491022ef5b7f8c44dae4120ca6985255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &881787118
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844666999}
+  m_GameObject: {fileID: 881787115}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.7197055, y: 4.798183}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.68, y: 12.09}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2682726, y: 2.493634}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &884728147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884728148}
+  - component: {fileID: 884728150}
+  - component: {fileID: 884728149}
+  m_Layer: 0
+  m_Name: SculptureCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884728148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884728147}
+  m_LocalRotation: {x: -0, y: -0, z: 0.2936504, w: 0.9559129}
+  m_LocalPosition: {x: 3.51, y: -4.35, z: 0}
+  m_LocalScale: {x: 1.141698, y: 2.4035747, z: 2.4035747}
+  m_Children: []
+  m_Father: {fileID: 844667002}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34.153}
+--- !u!61 &884728149
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884728147}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.22628173}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.54743654}
+  m_EdgeRadius: 0
+--- !u!114 &884728150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884728147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce3cd83a02466b4582a02a21f56e838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1313559266
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9e8e04543527b4ab0e2fd28ad2eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sculptureData:
+    position: {x: 0, y: 0, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
   hammer: {fileID: 225508972}
   chisel: {fileID: 844667000}
   sculptures:

@@ -6,8 +6,7 @@ public class Chisel : MonoBehaviour
 {
     public float chiselSpeed;
 
-    [HideInInspector]
-    public SculptablePart selectedPart; 
+    private SculptablePart selectedPart; 
 
     void Update()
     {
@@ -19,18 +18,9 @@ public class Chisel : MonoBehaviour
         transform.Translate(0, y, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void SelectPart(SculptablePart sp)
     {
-        selectedPart = collision.GetComponent<SculptablePart>();
-        Debug.Log(selectedPart);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        selectedPart = null;
-        Debug.Log(selectedPart);
-
-
+        selectedPart = sp;
     }
 
     public void OnHammerCollision()

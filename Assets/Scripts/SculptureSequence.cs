@@ -23,6 +23,8 @@ public class SculptureSequence : MonoBehaviour
 
             if (childObj.GetComponent<SpriteRenderer>()) // it's a sprite, which means it's a statue part
             {
+                childObj.SetActive(false); // all statue parts start off disabled
+
                 var polygonCollider = childObj.AddComponent<PolygonCollider2D>();
                 polygonCollider.isTrigger = true;
 
@@ -52,8 +54,6 @@ public class SculptureSequence : MonoBehaviour
     {
         if (part == null)
         {
-            Debug.Log("SEQUENCE COMPLETE");
-
             gameObject.GetComponentInParent<Sculpture>().SequenceComplete(this);
 
             // no parts left, so destroy this sequence (TODO: play rubble anim)
