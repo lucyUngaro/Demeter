@@ -11,6 +11,8 @@ public class Hammer : MonoBehaviour
     public float maxRecoil = 30;
     public float recoilDuration = 0.3f;
     public float rotationThreshold = 5f;
+    public Sprite hammerStrike;
+    public Sprite idle;
 
     private Rigidbody2D hammerBody;
     private Vector3 previousVelocity;
@@ -47,6 +49,7 @@ public class Hammer : MonoBehaviour
             {
                 hammerBody.velocity = Vector2.zero;
                 recoilTime = 0;
+                GetComponent<SpriteRenderer>().sprite = idle;
             }  
         }
 
@@ -71,7 +74,9 @@ public class Hammer : MonoBehaviour
            
             chisel.OnHammerCollision();
 
-            transform.DORotate(new Vector3(0, 0, transform.rotation.z - recoilForceX), recoilDuration).OnComplete(() => transform.DORewind());
+            transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z - recoilForceX), recoilDuration).OnComplete(() => transform.DORewind());
+
+            GetComponent<SpriteRenderer>().sprite = hammerStrike;
         }
     }
 }

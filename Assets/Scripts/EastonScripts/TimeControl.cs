@@ -17,8 +17,8 @@ public class TimeControl : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        Debug.Log(time);
-        if(time > 1 && time%secondsUntilChime<1){
+
+        if (time > 1 && time%secondsUntilChime<1){
             if(!chime.isPlaying){
                 chime.Play();
             }

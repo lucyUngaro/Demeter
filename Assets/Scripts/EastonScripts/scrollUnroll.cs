@@ -56,7 +56,7 @@ public class scrollUnroll : MonoBehaviour
             promptChanged = false;
         }
 
-        if(promptChanged){
+        if (promptChanged){
             rolled = false;
             manager.CreateNextStatue();
         }
