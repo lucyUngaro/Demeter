@@ -326,6 +326,70 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.4015946, y: 5.860242}
   m_EdgeRadius: 0
+--- !u!1 &286375933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286375935}
+  - component: {fileID: 286375934}
+  m_Layer: 0
+  m_Name: GameSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &286375934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286375933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8d229c40f0c0f40814102f9e2c99b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sculptureData:
+    transform:
+      position: {x: 0, y: 1, z: 0}
+      scale: {x: 0.5, y: 0.5, z: 1}
+      rotation: {x: 0, y: 0, z: 0, w: 0}
+    sculptures:
+    - {fileID: 6094826824033858105, guid: 41264d15cbc977e4b8581f7d515df4c2, type: 3}
+    - {fileID: 299178701515508432, guid: 7374f24a4b22757469b9e4796d4e187a, type: 3}
+    - {fileID: 6531941407692132853, guid: c31a4262319697443a115899493ed17b, type: 3}
+    - {fileID: 4623715690489991004, guid: 7771014532403694e8193437fcb30bfe, type: 3}
+    - {fileID: 7543320723208589689, guid: 6299844ae91f6eb4892cf0c0891f4121, type: 3}
+    rubble:
+    - {fileID: 21300000, guid: f1ed800e1e199d642868e8aaaee2ae12, type: 3}
+    - {fileID: 21300000, guid: 5f91a1f8f5d8de649bdbede1230ac710, type: 3}
+    - {fileID: 21300000, guid: 7dc821db37e702e448a820cedc59119f, type: 3}
+    - {fileID: 21300000, guid: 56a0f2eee88a3284e9eb5bae62233b63, type: 3}
+    - {fileID: 21300000, guid: 17391b00e343a2241a2780b5865249eb, type: 3}
+    events:
+    - eventType: 1
+      eventValue: 1
+      sprite: {fileID: 0}
+--- !u!4 &286375935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286375933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.169145, y: -3.2063532, z: 0.074485004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +441,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -640,7 +704,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.22628173}
+  m_Offset: {x: 0.005737111, y: -0.34368205}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -651,7 +715,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.54743654}
+  m_Size: {x: 0.45002803, y: 0.19834986}
   m_EdgeRadius: 0
 --- !u!114 &884728150
 MonoBehaviour:
@@ -676,7 +740,7 @@ GameObject:
   - component: {fileID: 1313559268}
   - component: {fileID: 1313559267}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,14 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9e8e04543527b4ab0e2fd28ad2eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sculptureData:
-    position: {x: 0, y: 0, z: 0}
-    scale: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-  hammer: {fileID: 225508972}
-  chisel: {fileID: 844667000}
-  sculptures:
-  - {fileID: 6094826824033858105, guid: 41264d15cbc977e4b8581f7d515df4c2, type: 3}
 --- !u!4 &1313559268
 Transform:
   m_ObjectHideFlags: 0

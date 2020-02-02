@@ -60,14 +60,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Chisel.cs" />
-    <Compile Include="Assets\Scripts\Hammer.cs" />
-    <Compile Include="Assets\Scripts\HammerCollider.cs" />
+    <Compile Include="Assets\Scripts\GameSettings.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
-    <Compile Include="Assets\Scripts\SculptablePart.cs" />
-    <Compile Include="Assets\Scripts\Sculpture.cs" />
-    <Compile Include="Assets\Scripts\SculptureCollider.cs" />
-    <Compile Include="Assets\Scripts\SculptureSequence.cs" />
+    <Compile Include="Assets\Scripts\PlayerInput\Chisel.cs" />
+    <Compile Include="Assets\Scripts\PlayerInput\Hammer.cs" />
+    <Compile Include="Assets\Scripts\PlayerInput\HammerCollider.cs" />
+    <Compile Include="Assets\Scripts\PlayerInput\SculptureCollider.cs" />
+    <Compile Include="Assets\Scripts\Sculpture\Rubble.cs" />
+    <Compile Include="Assets\Scripts\Sculpture\SculptablePart.cs" />
+    <Compile Include="Assets\Scripts\Sculpture\Sculpture.cs" />
+    <Compile Include="Assets\Scripts\Sculpture\SculptureSequence.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

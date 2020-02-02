@@ -2,39 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class SculptureData
-{
-    public Vector3 position;
-    public Vector3 scale;
-    public Quaternion rotation;
-
-    public static SculptureData GlobalSculptureData;
-
-    public SculptureData()
-    {
-        GlobalSculptureData = this;
-    }
-}
-
 
 public class Manager : MonoBehaviour
 {
-    public SculptureData sculptureData = new SculptureData(); // set the transform values of sculpture parts in inspector and then assign to a static variable
-
-    public Hammer hammer;
-    public Chisel chisel;
-    public List<GameObject> sculptures;
-
-    int currentStatueNum = 0;
-    GameObject currentStatue;
+    private int currentStatueNum = 0;
+    private GameObject currentStatue;
+    private List <GameObject> sculptures;
 
     private void Awake()
     {
+        sculptures = SculptureData.GlobalSculptureData.sculptures;
+
         CreateNextStatue();
     }
 
-    void CreateNextStatue()
+    public void SendOutStatue()
+    {
+        Destroy(currentStatue);
+        CreateNextStatue();
+    }
+
+    private void CreateNextStatue()
     {
         if (sculptures.Count > currentStatueNum)
         {
@@ -45,6 +33,7 @@ public class Manager : MonoBehaviour
                 currentStatue.AddComponent<Sculpture>();
             }
 
+            currentStatue.GetComponent<Sculpture>().Init(currentStatueNum, this);
             currentStatueNum++;
         }
     }
