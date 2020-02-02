@@ -6,14 +6,15 @@ public class scrollUnroll : MonoBehaviour
 {
     public bool rolled;
     public float dropHeight, speed, startingHeight;
-    public int prompt;
+    public int currentPrompt;
     public List<SpriteRenderer> promptImages = new List<SpriteRenderer>();
+    public bool done = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rolled = true;
-        prompt = 0;
+        currentPrompt = 0;
         startingHeight = transform.position.y;
     }
 
@@ -21,12 +22,18 @@ public class scrollUnroll : MonoBehaviour
     void Update()
     {
         Vector3 newPos;
+        //
+        //if done, roll up the scroll
+
+        //if just starting game, slight delay before first scroll, each scroll should be submitted by the end of day for tehe
+
 
         if(Input.GetKeyDown(KeyCode.Space)){
             rolled = !rolled;
             if (rolled)
             {
-                prompt++;
+               // prompt++;
+
             }
         }
 

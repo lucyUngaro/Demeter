@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Sculpture\SculptablePart.cs" />
     <Compile Include="Assets\Scripts\Sculpture\Sculpture.cs" />
     <Compile Include="Assets\Scripts\Sculpture\SculptureSequence.cs" />
+    <Compile Include="Assets\sendStatue.cs" />
     <None Include="Assets\GradientShader\LinearGradient.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/eastonself/Documents/Faceshopping/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
