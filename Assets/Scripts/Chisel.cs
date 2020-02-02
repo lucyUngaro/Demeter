@@ -5,7 +5,9 @@ using UnityEngine;
 public class Chisel : MonoBehaviour
 {
     public float chiselSpeed;
-    Collider2D selectedPart; 
+
+    [HideInInspector]
+    public SculptablePart selectedPart; 
 
     void Update()
     {
@@ -19,11 +21,24 @@ public class Chisel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        selectedPart = collision;
+        selectedPart = collision.GetComponent<SculptablePart>();
+        Debug.Log(selectedPart);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         selectedPart = null;
+        Debug.Log(selectedPart);
+
+
     }
+
+    public void OnHammerCollision()
+    {
+        if (selectedPart != null)
+        {
+            selectedPart.OnHit();
+        }
+    }
+  
 }

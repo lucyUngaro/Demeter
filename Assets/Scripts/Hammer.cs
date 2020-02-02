@@ -5,7 +5,10 @@ using UnityEngine;
 public class Hammer : MonoBehaviour
 {
     public float cursorSensitivity;
-    public Rigidbody2D hammerBody;
+    public float requiredVelocity;
+
+    Rigidbody2D hammerBody;
+    Vector3 previousVelocity;
 
     private void Awake()
     {
@@ -16,7 +19,19 @@ public class Hammer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        previousVelocity = hammerBody.velocity;
+
         Vector3 mouseMovement = new Vector3(Input.GetAxisRaw("Mouse X") * cursorSensitivity, Input.GetAxisRaw("Mouse Y") * cursorSensitivity, 0f);
         hammerBody.velocity = mouseMovement;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var chisel = collision.gameObject.GetComponent<Chisel>();
+
+        if (chisel && previousVelocity.magnitude >= requiredVelocity) // collided with the chisel
+        {
+            chisel.OnHammerCollision(); 
+        }
     }
 }
