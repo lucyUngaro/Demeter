@@ -316,19 +316,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 155580271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e179625e61ce84b80c99fc002dcd52, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6e6706a36dd40f78a073fa6092fde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlighted: 0
-  resting: 0
-  packing: 0
-  speed: 0
-  mousedOver: 0
-  mouseClicked: 0
-  sending: 0
-  open: {fileID: 21300000, guid: 43aefc812376a734a9cca0d20de85510, type: 3}
-  closed: {fileID: 21300000, guid: d13fc05bd3f61ce4cb6b6600f934bc73, type: 3}
-  box: {fileID: 155580274}
+  boxSprites:
+  - {fileID: 21300000, guid: ee8d4aaa544074645b93c5454aeeda73, type: 3}
+  - {fileID: 21300000, guid: 1e8b1e61e2f2c904eb3995923b85ea83, type: 3}
+  - {fileID: 21300000, guid: b1af8f33b8958a842adc4748111c3e1a, type: 3}
+  - {fileID: 21300000, guid: dc5a5fc9b40b64441b79c5298f2477b6, type: 3}
+  - {fileID: 21300000, guid: e6dcb530053795447835e23f6b495bf6, type: 3}
+  - {fileID: 21300000, guid: dfba5309853a8734cadaff561ac2d923, type: 3}
+  - {fileID: 21300000, guid: 2b99ad8884b5bd145a6e80a339fc7692, type: 3}
+  - {fileID: 21300000, guid: 408a9840caec8344f9e24d4ad25b9a18, type: 3}
+  - {fileID: 21300000, guid: 2f65fd281b87dae48ad13aa5fc744e7b, type: 3}
+  - {fileID: 21300000, guid: e5cd51dcc136d9246a99268319f548ed, type: 3}
+  holdTimer: 0
+  confirmed: 0
+  startPos: {x: 0, y: 0, z: 0}
+  lerpPos: {x: 0, y: -5, z: -0.5}
 --- !u!212 &155580274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -366,7 +371,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 43aefc812376a734a9cca0d20de85510, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee8d4aaa544074645b93c5454aeeda73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -385,8 +390,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155580271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.5, z: -0.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: -11.9, z: -0.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
@@ -1112,30 +1117,40 @@ MonoBehaviour:
       initialApproval: -3
       positiveResponse: You did what you were told well enough.
       negativeResponse: My priceless art! How could you!
+      positiveResponseImage: {fileID: 0}
+      negativeResponseImage: {fileID: 0}
     - sculpture: {fileID: 299178701515508432, guid: 7374f24a4b22757469b9e4796d4e187a,
         type: 3}
       rubble: {fileID: 21300000, guid: 5f91a1f8f5d8de649bdbede1230ac710, type: 3}
       initialApproval: 0
       positiveResponse: 
       negativeResponse: 
+      positiveResponseImage: {fileID: 0}
+      negativeResponseImage: {fileID: 0}
     - sculpture: {fileID: 6531941407692132853, guid: c31a4262319697443a115899493ed17b,
         type: 3}
       rubble: {fileID: 21300000, guid: 7dc821db37e702e448a820cedc59119f, type: 3}
       initialApproval: -3
       positiveResponse: 
       negativeResponse: 
+      positiveResponseImage: {fileID: 0}
+      negativeResponseImage: {fileID: 0}
     - sculpture: {fileID: 4623715690489991004, guid: 7771014532403694e8193437fcb30bfe,
         type: 3}
       rubble: {fileID: 21300000, guid: 56a0f2eee88a3284e9eb5bae62233b63, type: 3}
       initialApproval: 0
       positiveResponse: 
       negativeResponse: 
+      positiveResponseImage: {fileID: 0}
+      negativeResponseImage: {fileID: 0}
     - sculpture: {fileID: 7543320723208589689, guid: 6299844ae91f6eb4892cf0c0891f4121,
         type: 3}
       rubble: {fileID: 21300000, guid: 17391b00e343a2241a2780b5865249eb, type: 3}
       initialApproval: 3
       positiveResponse: 
       negativeResponse: 
+      positiveResponseImage: {fileID: 0}
+      negativeResponseImage: {fileID: 0}
     events:
     - eventType: 1
       eventValue: 2
@@ -1561,7 +1576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650356003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
