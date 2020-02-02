@@ -22,6 +22,8 @@ public class SculptablePart : MonoBehaviour
             prevPartPos = pos;
             StartCoroutine("UnityWorkaround");
         }
+
+        FindObjectOfType<lightController>().AddSprite(GetComponent<SpriteRenderer>());
        
     }
 
