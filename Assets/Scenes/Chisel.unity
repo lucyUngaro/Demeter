@@ -213,10 +213,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649157ab6a2bf8c43a88a3e1f17b2f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorSensitivity: 0.8
+  cursorSensitivity: 1
   requiredVelocity: 5
   maxRecoil: 25
   recoilDuration: 0.15
+  rotationThreshold: 5
 --- !u!212 &225508973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -254,7 +255,7 @@ SpriteRenderer:
   m_SortingLayerID: 70500179
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 05522a0adc6a0184486e63c8ad9a62c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -317,7 +318,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.61, y: 14.95}
+    oldSize: {x: 17.4, y: 19.99}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -796,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9e8e04543527b4ab0e2fd28ad2eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scroll: {fileID: 0}
 --- !u!4 &1313559268
 Transform:
   m_ObjectHideFlags: 0

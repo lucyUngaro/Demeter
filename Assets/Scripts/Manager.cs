@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
 {
     private int currentStatueNum = 0;
     private GameObject currentStatue;
+    public scrollUnroll scroll;
     private List <SculptureSettings> sculptureSettings;
 
     private void Awake()
@@ -19,10 +20,13 @@ public class Manager : MonoBehaviour
     public void SendOutStatue(int approval)
     {
         Destroy(currentStatue);
-        CreateNextStatue();
+        scroll.rolled = true;
+        //roll scroll set to true
+        //wait a second then unroll scroll and create next statue
+        //CreateNextStatue();
     }
 
-    private void CreateNextStatue()
+    public void CreateNextStatue()
     {
         if (sculptureSettings.Count > currentStatueNum)
         {
