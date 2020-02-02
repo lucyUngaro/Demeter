@@ -13,8 +13,6 @@ public class Manager : MonoBehaviour
     private void Awake()
     {
         sculptureSettings = GameData.GlobalGameData.sculptureSettings;
-
-        CreateNextStatue();
     }
 
     public void SendOutStatue(int approval)

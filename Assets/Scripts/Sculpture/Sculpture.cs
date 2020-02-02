@@ -101,8 +101,6 @@ public class Sculpture : MonoBehaviour
     private void UpdateApproval(int points)
     {
         approval += points;
-
-        Debug.Log(approval);
     }
 
     private void Fall(float value)

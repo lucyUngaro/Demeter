@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -462,7 +462,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.240742, y: 5.1718903}
+  m_Offset: {x: 5.4607153, y: 6.4238615}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -473,7 +473,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.8744917, y: 8.717014}
+  m_Size: {x: 6.4345455, y: 2.0848637}
   m_EdgeRadius: 0
 --- !u!50 &371831304
 Rigidbody2D:
@@ -509,10 +509,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorSensitivity: 0.8
-  requiredVelocity: 5
+  requiredVelocity: 15
   maxRecoil: 25
   recoilDuration: 0.15
   rotationThreshold: 5
+  hammerStrike: {fileID: 21300000, guid: bf0778796d887d746a36233a7ff1f26e, type: 3}
+  idle: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
 --- !u!212 &371831306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11981,61 +11983,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light
       objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.9331474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.090408325
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 24.898
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5441350808542658325, guid: 824f295de79b6404b8d49f0e2811a8c5,
         type: 3}
       propertyPath: lightSprites.Array.size
@@ -12185,6 +12132,61 @@ PrefabInstance:
         type: 3}
       propertyPath: midnight.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.9331474
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.090408325
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.898
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441350808542658326, guid: 824f295de79b6404b8d49f0e2811a8c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 824f295de79b6404b8d49f0e2811a8c5, type: 3}
