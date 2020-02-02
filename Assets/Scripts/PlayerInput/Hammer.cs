@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class Hammer : MonoBehaviour
 {
@@ -8,13 +10,13 @@ public class Hammer : MonoBehaviour
     public float requiredVelocity;
     public float maxRecoil = 30;
     public float recoilDuration = 0.3f;
+    public float rotationThreshold = 5f;
 
     private Rigidbody2D hammerBody;
     private Vector3 previousVelocity;
     private float recoilTime = 0f;
     private float recoilForceX;
     private float recoilForceY;
-    private float recoveryTime = 0f;
 
     private void Awake()
     {
@@ -31,8 +33,13 @@ public class Hammer : MonoBehaviour
 
             Vector3 mouseMovement = new Vector3(Input.GetAxisRaw("Mouse X") * cursorSensitivity, Input.GetAxisRaw("Mouse Y") * cursorSensitivity, 0f);
             hammerBody.velocity = mouseMovement;
+
+            if (Mathf.Abs(mouseMovement.x) > rotationThreshold)
+            {
+                ChooseDirection(mouseMovement.x);
+            }
         }
-        else
+       else
         {
             recoilTime -= Time.deltaTime;
 
@@ -40,22 +47,16 @@ public class Hammer : MonoBehaviour
             {
                 hammerBody.velocity = Vector2.zero;
                 recoilTime = 0;
-                recoveryTime = recoilDuration / 2;
-            }   
-            else
-            {
-                Quaternion rotation = Quaternion.Euler(0, 0, -recoilForceX);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, recoilDuration);
-            }
+            }  
         }
 
-        if (recoveryTime > 0)
-        {
-            recoveryTime -= Time.deltaTime;
+    }
 
-            Quaternion rotation = Quaternion.Euler(0, 0, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, recoilDuration / 2);
-        }
+    private void ChooseDirection(float moveValue)
+    {
+        int rotationValue = moveValue < 0 ? 1 : -1;
+
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * rotationValue, transform.localScale.y, transform.localScale.z);
     }
 
     public void CollidedWithChisel(Chisel chisel)
@@ -68,7 +69,9 @@ public class Hammer : MonoBehaviour
             recoilTime = recoilDuration;
             hammerBody.velocity = new Vector2(recoilForceX,recoilForceY);
            
-            chisel.OnHammerCollision(); 
+            chisel.OnHammerCollision();
+
+            transform.DORotate(new Vector3(0, 0, transform.rotation.z - recoilForceX), recoilDuration).OnComplete(() => transform.DORewind());
         }
     }
 }

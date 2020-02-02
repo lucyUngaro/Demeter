@@ -60,6 +60,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\GradientShader\GradientComponentManager.cs" />
     <Compile Include="Assets\Scripts\EastonScripts\lightController.cs" />
     <Compile Include="Assets\Scripts\EastonScripts\scrollUnroll.cs" />
@@ -77,6 +84,7 @@
     <Compile Include="Assets\Scripts\Sculpture\Sculpture.cs" />
     <Compile Include="Assets\Scripts\Sculpture\SculptureSequence.cs" />
     <None Include="Assets\GradientShader\LinearGradient.shader" />
+    <None Include="Assets\DOTween\readme.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -86,17 +94,17 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>C:/Users/lucyu/Faceshopping/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -298,6 +306,9 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.9f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/lucyu/Faceshopping/Assets/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/lucyu/Faceshopping/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
