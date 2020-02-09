@@ -76,9 +76,6 @@ public class Sculpture : MonoBehaviour
         {
             GameObject rubble = Instantiate(new GameObject(), GameData.GlobalGameData.transform.position, GameData.GlobalGameData.transform.rotation, transform);
             rubble.AddComponent<SpriteRenderer>().sprite = thisSculpture.rubble;
-
-            // TODO: wait for button press
-            manager.SendOutStatue();
         }
 
     }

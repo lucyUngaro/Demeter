@@ -47,3 +47,6 @@ TagManager:
   - name: Hammer
     uniqueID: 70500179
     locked: 0
+  - name: VeryFront
+    uniqueID: 3729276135
+    locked: 0
