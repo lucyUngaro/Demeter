@@ -11,3 +11,4 @@ Cmd: compileComputeKernel
 Cmd: compileComputeKernel
   api=4 insize=1505 outsize=1461 ok=1
 Cmd: initializeCompiler
+Cmd: initializeCompiler
