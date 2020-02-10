@@ -29,7 +29,9 @@ public class Manager : MonoBehaviour
     {
         int approval = currentStatue.GetComponent<Sculpture>().approval;
         Destroy(currentStatue);
-        scroll.rolled = true;
+
+        scroll.TweenUp();
+
         //roll scroll set to true
         //wait a second then unroll scroll and create next statue
         StartCoroutine("WaitToCreateNext"); 
