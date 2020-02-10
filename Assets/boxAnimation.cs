@@ -30,7 +30,7 @@ public class boxAnimation : MonoBehaviour
             holdTimer = 0;
         }
 
-        if(holdTimer >=3 && !confirmed){
+        if(holdTimer >=2 && !confirmed){
             confirmed = true;
             GetComponent<SpriteRenderer>().sprite = boxSprites[7];
             transform.position = lerpPos;
@@ -41,7 +41,7 @@ public class boxAnimation : MonoBehaviour
 
         if(confirmed){
             GetComponent<SpriteRenderer>().sprite = boxSprites[7];
-            if(holdTimer>3.5f){
+            if(holdTimer>2.5f){
                 flying = true;
             }
 
