@@ -69,6 +69,7 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\GradientShader\GradientComponentManager.cs" />
+    <Compile Include="Assets\randomVelocity.cs" />
     <Compile Include="Assets\Scripts\AudioMan.cs" />
     <Compile Include="Assets\Scripts\EastonScripts\lightController.cs" />
     <Compile Include="Assets\Scripts\EastonScripts\scrollUnroll.cs" />

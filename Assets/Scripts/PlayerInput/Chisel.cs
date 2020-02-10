@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Chisel : MonoBehaviour
 {
@@ -43,9 +44,7 @@ public class Chisel : MonoBehaviour
                 timer = 0;
             }
         }
-        
 
-       
     }
 
     public void SelectPart(SculptablePart sp)
@@ -66,6 +65,9 @@ public class Chisel : MonoBehaviour
 
     public void OnHammerCollision()
     {
+
+        transform.DOMove(transform.position + new Vector3(-0.75f, -0.75f, 0), 0.1f, false).OnComplete(() => transform.DORewind());
+
         if (selectedPart != null)
         {
             selectedPart.OnHit();
