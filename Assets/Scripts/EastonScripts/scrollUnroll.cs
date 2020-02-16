@@ -25,6 +25,7 @@ public class scrollUnroll : MonoBehaviour
     public void TweenUp(bool snap = false)
     {
         Vector3 newPos = new Vector3(transform.position.x, startingHeight, transform.position.z);
+
         TweenToNewPosition(newPos, snap);
     }
 

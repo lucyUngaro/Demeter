@@ -24,7 +24,7 @@ public class boxAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space) && !waiting){
+        if(Input.GetKey(KeyCode.Space) && !waiting && gameMan.gameRunning){
             holdTimer += Time.deltaTime;
         }else{
             holdTimer = 0;

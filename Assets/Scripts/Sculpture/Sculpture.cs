@@ -72,8 +72,10 @@ public class Sculpture : MonoBehaviour
 
     private void CheckSculptureComplete ()
     {
-        if (transform.childCount == 0 || (transform.childCount == 1 && transform.GetChild(0).gameObject.name == "DestroyMe")) // sculpture has been destroyed, add rubble
+        if (sequences.Count == 0) // sculpture has been destroyed, add rubble
         {
+            manager.OnSculptureComplete();
+
             GameObject rubble = Instantiate(new GameObject(), GameData.GlobalGameData.transform.position, GameData.GlobalGameData.transform.rotation, transform);
             rubble.AddComponent<SpriteRenderer>().sprite = thisSculpture.rubble;
         }

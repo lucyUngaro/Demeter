@@ -57,7 +57,7 @@ public class SculptureSequence : MonoBehaviour
     void CheckIfSequenceComplete()
     {
         if (part == null)
-        {               
+        {
             // no parts left, so destroy this sequence (TODO: play rubble anim)
             Destroy(gameObject);
             gameObject.name = "DestroyMe";
