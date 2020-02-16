@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\boxAnimation.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -69,8 +68,8 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\GradientShader\GradientComponentManager.cs" />
-    <Compile Include="Assets\randomVelocity.cs" />
     <Compile Include="Assets\Scripts\AudioMan.cs" />
+    <Compile Include="Assets\Scripts\boxAnimation.cs" />
     <Compile Include="Assets\Scripts\EastonScripts\lightController.cs" />
     <Compile Include="Assets\Scripts\EastonScripts\scrollUnroll.cs" />
     <Compile Include="Assets\Scripts\EastonScripts\sendStatue.cs" />
@@ -82,6 +81,7 @@
     <Compile Include="Assets\Scripts\PlayerInput\Hammer.cs" />
     <Compile Include="Assets\Scripts\PlayerInput\HammerCollider.cs" />
     <Compile Include="Assets\Scripts\PlayerInput\SculptureCollider.cs" />
+    <Compile Include="Assets\Scripts\randomVelocity.cs" />
     <Compile Include="Assets\Scripts\sculptablePart.cs" />
     <Compile Include="Assets\Scripts\Sculpture\Rubble.cs" />
     <Compile Include="Assets\Scripts\Sculpture\SculptablePart.cs" />

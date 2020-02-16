@@ -22,15 +22,6 @@ public class Manager : MonoBehaviour
         gameRunning = false;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("r"))
-        {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name); 
-        }
-    }
-
     public void OnSculptureComplete()
     {
         if (currentStatueNum == 1) // just completed the title (make a better check for this)

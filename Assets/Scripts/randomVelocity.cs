@@ -13,6 +13,7 @@ public class randomVelocity : MonoBehaviour
     {
         speedOffset = Random.Range(-25f, 25f);
         moved = false;
+        timer = 0f;
         lastYval = transform.position.y;
     }
 
