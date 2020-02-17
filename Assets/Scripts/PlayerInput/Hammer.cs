@@ -48,7 +48,6 @@ public class Hammer : MonoBehaviour
        else
         {
             recoilTime -= Time.deltaTime;
-            Debug.Log(recoilTime);
             if (recoilTime <= 0)
             {
                 hammerBody.velocity = Vector2.zero;

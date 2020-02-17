@@ -26,8 +26,7 @@ public struct SculptureSettings
     public GameObject sculpture;
     public Sprite rubble;
     public int initialApproval;
-    public string positiveResponse;
-    public string negativeResponse;
+    public Sprite prompt, positiveResponse, negativeResponse;
 }
 
 [System.Serializable]
