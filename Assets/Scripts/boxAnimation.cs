@@ -5,6 +5,8 @@ using UnityEngine;
 public class boxAnimation : MonoBehaviour
 {
     public List<Sprite> boxSprites = new List<Sprite>();
+    public List<Sprite> boxBackSprites = new List<Sprite>();
+    public SpriteRenderer boxBack;
     public float holdTimer;
     public float waitTimer = 0;
     public float waitTimerDuration = 2;
@@ -24,42 +26,28 @@ public class boxAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space) && !waiting && gameMan.gameRunning){
-            holdTimer += Time.deltaTime;
-        }else{
-            holdTimer = 0;
-        }
+        
 
-        if(holdTimer >=2 && !confirmed){
+        if(holdTimer >= 2.75f && !confirmed){
             confirmed = true;
-            GetComponent<SpriteRenderer>().sprite = boxSprites[7];
+            GetComponent<SpriteRenderer>().sprite = boxSprites[5];
+            boxBack.sprite = boxBackSprites[5];
             transform.position = lerpPos;
         }else if (!confirmed){
-            GetComponent<SpriteRenderer>().sprite = boxSprites[(int)(holdTimer * 3)];
-            transform.position = Vector3.Lerp(startPos, lerpPos, holdTimer);
+            GetComponent<SpriteRenderer>().sprite = boxSprites[(int)(holdTimer * 2)];
+            boxBack.sprite = boxBackSprites[(int)(holdTimer * 2)];
+            transform.position = Vector3.Lerp(startPos, lerpPos, holdTimer/2.5f);
         }
 
         if(confirmed){
-            GetComponent<SpriteRenderer>().sprite = boxSprites[7];
-            if(holdTimer>2.5f){
-                flying = true;
-            }
-
+            GetComponent<SpriteRenderer>().sprite = boxSprites[5];
+            boxBack.sprite = boxBackSprites[5];
             FindObjectOfType<Manager>().SendOutStatue();
 
             holdTimer = 0;
             confirmed = false;
             waitTimer = waitTimerDuration;
             waiting = true;
-        }
-
-        if(flying){
-            GetComponent<SpriteRenderer>().sprite = boxSprites[9];
-            transform.position = Vector3.Lerp(transform.position, new Vector3(0, 30, -0.5f), Time.deltaTime * 3f);
-
-            if(Vector3.Distance(transform.position, new Vector3(0, 30, -0.5f)) < 0.5f){
-                sent = true;
-            }
         }
 
         if (waitTimer > 0)
@@ -75,4 +63,20 @@ public class boxAnimation : MonoBehaviour
 
 
     }
+
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("Theyre coming");
+        if (!waiting && gameMan.gameRunning)
+        {
+            holdTimer += Time.deltaTime/2f;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Theyre gone");
+        holdTimer = 0;
+    }
+
 }
