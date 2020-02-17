@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{F58281E3-99C4-9ED9-C25A-4C9D3FDA551A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EastonScripts/scrollUnroll.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerInput/Chisel.cs">
     <Files>
       <File FileName="Assets/boxAnimation.cs" Line="38" Column="83" />
       <File FileName="Assets/Scripts/fadeAndDestroy.cs" Line="1" Column="1" />
-      <File FileName="Assets/breakTitle.cs" Line="10" Column="9" />
       <File FileName="Assets/Scripts/PlayerInput/SculptureCollider.cs" Line="19" Column="44" />
       <File FileName="Assets/Scripts/PlayerInput/HammerCollider.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerInput/Chisel.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerInput/Chisel.cs" Line="69" Column="71" />
       <File FileName="Assets/randomVelocity.cs" Line="14" Column="43" />
       <File FileName="Assets/Scripts/GameSettings.cs" Line="24" Column="1" />
       <File FileName="Assets/Scripts/Sculpture/SculptablePart.cs" Line="1" Column="1" />

@@ -1020,7 +1020,7 @@ MonoBehaviour:
       scale: {x: 1, y: 1, z: 1}
       rotation: {x: 0, y: 0, z: 0, w: 0}
     sculptureSettings:
-    - sculpture: {fileID: 8125645464019301918, guid: fa07aabbbd3b94ffe9e7c98a864af452,
+    - sculpture: {fileID: 6094826824033858105, guid: 41264d15cbc977e4b8581f7d515df4c2,
         type: 3}
       rubble: {fileID: 21300000, guid: f1ed800e1e199d642868e8aaaee2ae12, type: 3}
       initialApproval: -3
