@@ -81,9 +81,7 @@ public class Hammer : MonoBehaviour
 
             GetComponent<SpriteRenderer>().sprite = hammerStrike;
 
-            if(!rocks.isPlaying){
-                rocks.Play();
-            }
+            rocks.Play();
 
             GetComponent<AudioMan>().playRandomSound();
         }
