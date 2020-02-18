@@ -56,7 +56,7 @@ public class Hammer : MonoBehaviour
 
             if (currentVelocity != Vector2.zero)
             {
-                if (idleTime >= 0.3)
+                if (idleTime >= 0.2)
                 {
                     movementDuration = 0;
                 }
@@ -113,7 +113,10 @@ public class Hammer : MonoBehaviour
             minY = maxVelocity * -1;
         }
 
-        return new Vector2(Mathf.Clamp(unclampedVelocity.x, minX, maxX), Mathf.Clamp(unclampedVelocity.y, minY, maxY));
+        float x = unclampedVelocity.x == 0 ? 0 : Mathf.Clamp(unclampedVelocity.x, minX, maxX);
+        float y = unclampedVelocity.y == 0 ? 0 : Mathf.Clamp(unclampedVelocity.y, minY, maxY);
+
+        return new Vector2(x, y);
     }
 
     private Vector2 GetCurrentInput()
