@@ -718,14 +718,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649157ab6a2bf8c43a88a3e1f17b2f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorSensitivity: 0.5
-  maxVelocity: 40
-  minVelocity: 2
+  cursorSensitivity: 0.1
+  maxVelocity: 15
+  minVelocity: 6
   requiredVelocity: 10
   maxRecoil: 25
   recoilDuration: 0.3
-  rotationThreshold: 5
-  acceleration: 1.5
+  rotationThreshold: 6
+  acceleration: 2
   hammerStrike: {fileID: 21300000, guid: bf0778796d887d746a36233a7ff1f26e, type: 3}
   idle: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
   rocks: {fileID: 6248258587751960016}

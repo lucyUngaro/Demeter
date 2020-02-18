@@ -35,6 +35,7 @@ public class Hammer : MonoBehaviour
     private float recoilForceY;
     private float idleTime = 0;
     private float movementDuration;
+    private int currentDirection = 0;
 
   
     public ParticleSystem rocks;
@@ -54,28 +55,23 @@ public class Hammer : MonoBehaviour
         {
             currentVelocity = this.GetCurrentInput();
 
-            if (currentVelocity != Vector2.zero)
+            if (currentVelocity.magnitude > 1f)
             {
-                if (idleTime >= 0.2)
+                if (idleTime >= 0.5)
                 {
                     movementDuration = 0;
                 }
 
                 idleTime = 0;
-                hammerBody.velocity = GetClampedVelocity(currentVelocity + (currentVelocity * movementDuration * acceleration));
+                hammerBody.velocity = GetClampedVelocity(currentVelocity + (currentVelocity * movementDuration));
             }
             else
             {
                 idleTime += Time.deltaTime;
-
-                if (idleTime >= 0.2)
-                {
-                    hammerBody.velocity = Vector2.zero;
-                }
-               
+                hammerBody.velocity *= 0.9f;
             }
 
-            movementDuration += Time.deltaTime;
+            movementDuration += Time.deltaTime * acceleration;
 
             if (Mathf.Abs(hammerBody.velocity.x) > rotationThreshold)
             {
@@ -98,42 +94,59 @@ public class Hammer : MonoBehaviour
 
     private Vector2 GetClampedVelocity(Vector2 unclampedVelocity)
     {
-        float maxX, maxY, minX, minY;
+        float maxX, maxY, minX, minY, x, y;
         maxX = maxY = maxVelocity;
         minX = minY = minVelocity;
+        x = unclampedVelocity.x;
+        y = unclampedVelocity.y;
 
-        if (unclampedVelocity.x < 0)
+        if (x > y) // clamp the axis with more movement
         {
-            maxX = minVelocity * -1;
-            minX = maxVelocity * -1;
+            if (unclampedVelocity.x < 0)
+            {
+                maxX = minVelocity * -1;
+                minX = maxVelocity * -1;
+            }
+
+            x = Mathf.Clamp(unclampedVelocity.x, minX, maxX);
         }
-        if (unclampedVelocity.y < 0)
+        else
         {
-            maxY = minVelocity * -1;
-            minY = maxVelocity * -1;
+            if (unclampedVelocity.y < 0)
+            {
+                maxY = minVelocity * -1;
+                minY = maxVelocity * -1;
+            }
+
+            y = unclampedVelocity.y == 0 ? 0 : Mathf.Clamp(unclampedVelocity.y, minY, maxY);
         }
-
-        float x = unclampedVelocity.x == 0 ? 0 : Mathf.Clamp(unclampedVelocity.x, minX, maxX);
-        float y = unclampedVelocity.y == 0 ? 0 : Mathf.Clamp(unclampedVelocity.y, minY, maxY);
-
+      
         return new Vector2(x, y);
     }
 
     private Vector2 GetCurrentInput()
     {
-        return new Vector2(Input.GetAxis("Mouse X") * cursorSensitivity, Input.GetAxis("Mouse Y") * cursorSensitivity);
+        return new Vector2(Input.GetAxisRaw("Mouse X") * cursorSensitivity, Input.GetAxisRaw("Mouse Y") * cursorSensitivity);
     }
 
     private void ChooseDirection(float moveValue)
     {
         int rotationValue = moveValue < 0 ? 1 : -1;
 
+        if (currentDirection != 0 && rotationValue != currentDirection)
+        {
+            // switched rotation, reset all movement
+            movementDuration = 0f;
+        }
+
+        currentDirection = rotationValue;
+
         transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * rotationValue, transform.localScale.y, transform.localScale.z);
     }
 
     public void CollidedWithChisel(Chisel chisel)
     {
-        if (chisel && hammerBody.velocity.magnitude >= requiredVelocity && movementDuration > 0.1f) // if it was moving at the right velocity
+        if (chisel && hammerBody.velocity.magnitude >= requiredVelocity && movementDuration > 0.2f) // if it was moving at the right velocity
         {
             recoilForceX = Mathf.Clamp(-hammerBody.velocity.x, -maxRecoil, maxRecoil);
             recoilForceY = Mathf.Clamp(-hammerBody.velocity.y, -maxRecoil, maxRecoil);
