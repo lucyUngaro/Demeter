@@ -13,7 +13,7 @@ public class HammerCollider : MonoBehaviour
         chisel = gameObject.GetComponentInParent<Chisel>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         var hammer = collision.gameObject.GetComponent<Hammer>();
 
