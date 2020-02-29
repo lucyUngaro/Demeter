@@ -12,7 +12,7 @@ using UnityEngine;
  **/
 public class Sculpture : MonoBehaviour
 {
-    List<SculptureSequence> sequences = new List<SculptureSequence>();
+    public List<SculptureSequence> sequences = new List<SculptureSequence>();
     private SculptureSettings thisSculpture;
 
     public int approval;
@@ -95,10 +95,9 @@ public class Sculpture : MonoBehaviour
 
     private void CheckSculptureComplete ()
     {
-        if (sequences.Count == 0) // sculpture has been destroyed, add rubble
+        if (sequences.Count == 0 || sequences[0].gameObject.name != "sequenceBase") // sculpture has been destroyed, add rubble
         {
             manager.OnSculptureComplete();
-
             GameObject rubble = Instantiate(new GameObject(), GameData.GlobalGameData.transform.position, GameData.GlobalGameData.transform.rotation, transform);
             rubble.AddComponent<SpriteRenderer>().sprite = thisSculpture.rubble;
         }
