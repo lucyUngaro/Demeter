@@ -41,15 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Title
-    uniqueID: 3613553197
-    locked: 0
-  - name: VeryFront
-    uniqueID: 3729276135
-    locked: 0
   - name: Chisel
     uniqueID: 3380539523
     locked: 0
   - name: Hammer
     uniqueID: 70500179
+    locked: 0
+  - name: VeryFront
+    uniqueID: 3729276135
     locked: 0

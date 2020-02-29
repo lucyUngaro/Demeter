@@ -11,7 +11,7 @@ public class randomVelocity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speedOffset = Random.Range(-25f, 2f);
+        speedOffset = Random.Range(-25f, 25f);
         moved = false;
         timer = 0f;
         lastYval = transform.position.y;
@@ -33,10 +33,8 @@ public class randomVelocity : MonoBehaviour
         }
 
         if(moved){
-            transform.position += new Vector3(0f, speedOffset * Time.deltaTime, 0f);
-            speedOffset -= Time.deltaTime * 2f;
+            transform.position -= new Vector3(speedOffset * Time.deltaTime, Mathf.Abs(speedOffset) * Time.deltaTime, 0f); 
         }
-
 
     }
 }
