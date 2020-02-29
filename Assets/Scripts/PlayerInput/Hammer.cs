@@ -22,7 +22,6 @@ public class Hammer : MonoBehaviour
     public float requiredVelocity;
     public float maxRecoil = 30;
     public float recoilDuration = 1f;
-    public float rotationThreshold = 5f;
     public float acceleration = 1.5f;
     public Sprite hammerStrike;
     public Sprite idle;
@@ -33,8 +32,9 @@ public class Hammer : MonoBehaviour
     private float recoilTime = 0f;
     private float recoilForceX;
     private float recoilForceY;
-    private float idleTime = 0;
+    private float idleTime = 0f;
     private float movementDuration;
+    private float peakVelocity;
     private int currentDirection = 0;
 
   
@@ -67,13 +67,19 @@ public class Hammer : MonoBehaviour
             }
             else
             {
+                if (idleTime == 0)
+                {
+                    peakVelocity = Mathf.Abs(hammerBody.velocity.magnitude);
+                }
+
                 idleTime += Time.deltaTime;
-                hammerBody.velocity *= 0.9f;
+                hammerBody.velocity *= peakVelocity <= minVelocity + 0.3 ? 0.5f : 0.9f;
+
             }
 
             movementDuration += Time.deltaTime * acceleration;
 
-            if (Mathf.Abs(hammerBody.velocity.x) > rotationThreshold)
+            if (movementDuration > 0.5 && idleTime == 0)
             {
                 ChooseDirection(hammerBody.velocity.x);
             }
@@ -87,7 +93,7 @@ public class Hammer : MonoBehaviour
                 hammerBody.velocity = Vector2.zero;
                 recoilTime = 0;
                 GetComponent<SpriteRenderer>().sprite = idle;
-            }  
+            }
         }
 
     }
@@ -100,7 +106,7 @@ public class Hammer : MonoBehaviour
         x = unclampedVelocity.x;
         y = unclampedVelocity.y;
 
-        if (x > y) // clamp the axis with more movement
+        if (Mathf.Abs(x) > Mathf.Abs(y)) // clamp the axis with more movement
         {
             if (unclampedVelocity.x < 0)
             {

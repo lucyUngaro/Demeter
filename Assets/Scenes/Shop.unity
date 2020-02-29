@@ -720,11 +720,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorSensitivity: 0.1
   maxVelocity: 15
-  minVelocity: 6
-  requiredVelocity: 10
+  minVelocity: 8
+  requiredVelocity: 13
   maxRecoil: 25
   recoilDuration: 0.3
-  rotationThreshold: 6
+  rotationThreshold: 8.5
   acceleration: 2
   hammerStrike: {fileID: 21300000, guid: bf0778796d887d746a36233a7ff1f26e, type: 3}
   idle: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}

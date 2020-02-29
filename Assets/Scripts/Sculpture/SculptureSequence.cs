@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ *  A SculptureSequence is a section of a sculpture with multiple parts. When one part is destroyed, the next part in the sequence is activated. 
+ *  SculptureSequence keeps track of the parts, and if they are all destroyed, tells the Sculpture class.
+ *  
+ *  It goes through all its children and adds the SculptablePart class to objects that have a SpriteRenderer component. 
+ *  Any children with children of their own are nested SculptableSequences. 
+ *  A nested SculptableSequence will get destroyed when its parent does (this way, when a base of the sculpture is destroyed, all of its connecting sequences will too).
+ *  
+ **/
+
 public class SculptureSequence : MonoBehaviour
 {
 
@@ -54,7 +64,7 @@ public class SculptureSequence : MonoBehaviour
         CheckIfSequenceComplete();
     }
     
-    void CheckIfSequenceComplete()
+    private void CheckIfSequenceComplete()
     {
         if (part == null)
         {

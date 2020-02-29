@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * This class oversees all of the sequences of parts in this sculpture, handles special events that are triggered when certain parts are destroyed,
+ * and keeps track of the approval rating for this sculpture.
+ * 
+ * It is added automatically whenever the Manager instantiates a new sculpture prefab. It then goes recursively through its children and adds the 
+ * SculptureSequence script to all objects that also have children. 
+ * 
+ **/
 public class Sculpture : MonoBehaviour
 {
     List<SculptureSequence> sequences = new List<SculptureSequence>();
     private SculptureSettings thisSculpture;
 
-    // approval
     public int approval;
 
-    // falling
+    // falling (triggered by an event)
     private float fallAmount;
     private bool falling;
     private float fallDistance;
@@ -34,7 +41,7 @@ public class Sculpture : MonoBehaviour
         {
             var child = parent.GetChild(i);
 
-            if (child.childCount > 0 && !child.gameObject.GetComponent<SpriteRenderer>()) // it's a parent which means it's a sequence
+            if (child.childCount > 0 && !child.gameObject.GetComponent<SpriteRenderer>()) // if it's a parent, it should be a sequence of sculpture parts
             {
                 child.gameObject.AddComponent<SculptureSequence>();
 
@@ -46,6 +53,29 @@ public class Sculpture : MonoBehaviour
             }
         }
 
+    }
+
+    // Execute an event set to occur on the destruction of an object specified in GameData
+    public void CompleteEvent(GameEvent gameEvent)
+    {
+        switch (gameEvent.eventType)
+        {
+            case GameEvent.eventTypes.fall:
+                Fall(gameEvent.eventValue);
+                break;
+            case GameEvent.eventTypes.points:
+                UpdateApproval(gameEvent.eventValue);
+                break;
+
+
+        }
+    }
+
+    // Once a sequence in this sculpture has been destroyed, check to see if the entire sculpture is destroyed
+    public void SequenceComplete(SculptureSequence seq)
+    {
+        sequences.Remove(seq);
+        CheckSculptureComplete();
     }
 
     private void Update()
@@ -63,13 +93,6 @@ public class Sculpture : MonoBehaviour
         }
     }
 
-  
-    public void SequenceComplete (SculptureSequence seq)
-    {
-        sequences.Remove(seq);
-        CheckSculptureComplete();
-    }
-
     private void CheckSculptureComplete ()
     {
         if (sequences.Count == 0) // sculpture has been destroyed, add rubble
@@ -82,21 +105,8 @@ public class Sculpture : MonoBehaviour
 
     }
 
-    public void CompleteEvent(GameEvent gameEvent)
-    {
-        switch (gameEvent.eventType)
-        {
-            case GameEvent.eventTypes.fall:
-                Fall(gameEvent.eventValue);
-                break;
-            case GameEvent.eventTypes.points:
-                UpdateApproval(gameEvent.eventValue);
-                break;
-                
-
-        }
-    }
-
+  
+    // Approval points are gained or lost based on what parts are destroyed
     private void UpdateApproval(int points)
     {
         approval += points;

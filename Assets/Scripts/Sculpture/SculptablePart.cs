@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ *  A SculptablePart is one part (or image) in a SculptureSequence. When the hammer and chisel collide with it, it is destroyed, and the next part in the sequence is activated.
+ * */
+
 public class SculptablePart : MonoBehaviour
 {
     private Vector2 prevPartPos;
+
+    private bool isDirty = false;
 
     private void Start()
     {
@@ -17,10 +23,12 @@ public class SculptablePart : MonoBehaviour
     {
         gameObject.SetActive(true);
 
+        // It is possible that the sculpture moved while this part was inactive. Children don't follow their parents while they are inactive.
+        // As a workaround, pass in the position of the previous part in this sequence, and on FixedUpdate(), move to that position. 
         if (pos != Vector2.zero)
         {
             prevPartPos = pos;
-            StartCoroutine("UnityWorkaround");
+            isDirty = true;
         }
 
         FindObjectOfType<lightController>().AddSprite(GetComponent<SpriteRenderer>());
@@ -35,14 +43,15 @@ public class SculptablePart : MonoBehaviour
         Destroy(gameObject);
         GetComponentInParent<SculptureSequence>().OnPartDestroyed();
     }
-    
-    // Yet another workaround for a bug in Unity -- inactive objects don't follow their parents, and when applying a new position directly after setting the object
-    // active, it immediately gets overridden. 
-    IEnumerator UnityWorkaround()
-    {
-        yield return new WaitForFixedUpdate();
 
-        transform.localPosition = prevPartPos;
+    // Wait for FixedUpdate() to set the position of this part. If done immediately, it will get overridden by MonoBehaviour applying a different position.
+    private void FixedUpdate()
+    {
+        if (isDirty)
+        {
+            transform.localPosition = prevPartPos;
+            isDirty = false;
+        }
     }
  
 
