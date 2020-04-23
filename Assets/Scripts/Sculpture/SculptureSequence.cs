@@ -59,7 +59,6 @@ public class SculptureSequence : MonoBehaviour
         // is there an event for the destruction of this sprite?
         CheckForEvent();
         Destroy(part.gameObject);
-
         part = GetNextPart(part.transform.localPosition);
         CheckIfSequenceComplete();
     }

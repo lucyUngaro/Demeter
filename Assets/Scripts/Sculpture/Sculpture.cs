@@ -66,6 +66,9 @@ public class Sculpture : MonoBehaviour
             case GameEvent.eventTypes.points:
                 UpdateApproval(gameEvent.eventValue);
                 break;
+            case GameEvent.eventTypes.tutorialComplete:
+                manager.DestroyTutorial();
+                break;
 
 
         }

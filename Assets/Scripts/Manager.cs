@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
 {
     private int currentStatueNum = 0;
     public scrollUnroll scroll;
+    public tutorialAnimation tutorial;
 
     private GameObject currentStatue;
     private List <SculptureSettings> sculptureSettings;
@@ -29,6 +30,11 @@ public class Manager : MonoBehaviour
             CreateNextStatue();
             gameRunning = true;
         }
+    }
+
+    public void DestroyTutorial()
+    {
+        tutorial.DeleteTutorial();
     }
 
     public void SendOutStatue()

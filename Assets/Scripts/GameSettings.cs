@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct GameEvent
 {
-    public enum eventTypes { points, fall };
+    public enum eventTypes { points, fall, tutorialComplete };
 
     public eventTypes eventType;
     public int eventValue;

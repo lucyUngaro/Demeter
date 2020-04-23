@@ -17,28 +17,32 @@ class MouseInput
 public class Hammer : MonoBehaviour
 {
     public float cursorSensitivity;
-    public float maxVelocity = 40f;
-    public float minVelocity = 5f;
-    public float requiredVelocity;
     public float maxRecoil = 30;
     public float recoilDuration = 1f;
     public float acceleration = 1.5f;
+    public float velocityRequiredToCollide = 1.1f;
+    public float idleTimeout = 0.3f;
+    public float minimumCollideDistance = 4f;
+
     public Sprite hammerStrike;
     public Sprite idle;
+    public ParticleSystem rocks;
 
     private Rigidbody2D hammerBody;
     private Vector2 currentVelocity;
-
+    private Vector2 prevVelocity;
+    private Vector2 startPosition = Vector2.zero;
+   
+    private float requiredVelocity = 100f;
+    private float minVelocity = 100f;
     private float recoilTime = 0f;
     private float recoilForceX;
     private float recoilForceY;
     private float idleTime = 0f;
-    private float movementDuration;
-    private float peakVelocity;
+    private float movementDuration = 0;
+    private float momentum = 0f;
     private int currentDirection = 0;
-
   
-    public ParticleSystem rocks;
 
 
     private void Awake()
@@ -55,39 +59,50 @@ public class Hammer : MonoBehaviour
         {
             currentVelocity = this.GetCurrentInput();
 
-            if (currentVelocity.magnitude > 1f)
+            if (currentVelocity.magnitude > 0f)
             {
-                if (idleTime >= 0.5)
+                if (movementDuration == 0 || (currentVelocity.magnitude > 0 && currentVelocity.magnitude < minVelocity))
                 {
-                    movementDuration = 0;
+                    // Started moving again, so set the minimum velocity
+                    minVelocity = currentVelocity.magnitude;
+                    requiredVelocity = minVelocity * velocityRequiredToCollide;
+                    startPosition = hammerBody.position;
                 }
 
                 idleTime = 0;
-                hammerBody.velocity = GetClampedVelocity(currentVelocity + (currentVelocity * movementDuration));
+                CalculateMomentum();
+
+                hammerBody.velocity = currentVelocity + currentVelocity * momentum;
+
+                movementDuration += Time.deltaTime;
+
+                if (idleTime == 0)
+                {
+                    ChooseDirection(currentVelocity.x);
+                }
+
+                prevVelocity = currentVelocity;
             }
             else
             {
-                if (idleTime == 0)
-                {
-                    peakVelocity = Mathf.Abs(hammerBody.velocity.magnitude);
-                }
 
                 idleTime += Time.deltaTime;
-                hammerBody.velocity *= peakVelocity <= minVelocity + 0.3 ? 0.5f : 0.9f;
+
+                if (idleTime >= idleTimeout)
+                {
+                    movementDuration = 0;
+                    hammerBody.velocity = Vector2.zero;
+                }
 
             }
 
-            movementDuration += Time.deltaTime * acceleration;
-
-            if (movementDuration > 0.5 && idleTime == 0)
-            {
-                ChooseDirection(hammerBody.velocity.x);
-            }
         }
         else
         {
             movementDuration = 0;
+        
             recoilTime -= Time.deltaTime;
+
             if (recoilTime <= 0)
             {
                 hammerBody.velocity = Vector2.zero;
@@ -96,38 +111,13 @@ public class Hammer : MonoBehaviour
             }
         }
 
+        CalculateMomentum();
+
     }
 
-    private Vector2 GetClampedVelocity(Vector2 unclampedVelocity)
+    private void CalculateMomentum()
     {
-        float maxX, maxY, minX, minY, x, y;
-        maxX = maxY = maxVelocity;
-        minX = minY = minVelocity;
-        x = unclampedVelocity.x;
-        y = unclampedVelocity.y;
-
-        if (Mathf.Abs(x) > Mathf.Abs(y)) // clamp the axis with more movement
-        {
-            if (unclampedVelocity.x < 0)
-            {
-                maxX = minVelocity * -1;
-                minX = maxVelocity * -1;
-            }
-
-            x = Mathf.Clamp(unclampedVelocity.x, minX, maxX);
-        }
-        else
-        {
-            if (unclampedVelocity.y < 0)
-            {
-                maxY = minVelocity * -1;
-                minY = maxVelocity * -1;
-            }
-
-            y = unclampedVelocity.y == 0 ? 0 : Mathf.Clamp(unclampedVelocity.y, minY, maxY);
-        }
-      
-        return new Vector2(x, y);
+        momentum = movementDuration * acceleration;
     }
 
     private Vector2 GetCurrentInput()
@@ -147,12 +137,27 @@ public class Hammer : MonoBehaviour
 
         currentDirection = rotationValue;
 
-        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * rotationValue, transform.localScale.y, transform.localScale.z);
+        if (movementDuration >= 0.1f)
+        {
+
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * rotationValue, transform.localScale.y, transform.localScale.z);
+        }
+       
+    }
+
+    private bool MovingFastEnough ()
+    {      
+        return currentVelocity.magnitude >= requiredVelocity || (idleTime < idleTimeout && currentVelocity == Vector2.zero && prevVelocity.magnitude >= requiredVelocity);
+    }
+
+    private bool StartedFarEnoughAway(Transform collidedObj)
+    {
+        return Vector2.Distance(collidedObj.position, startPosition) > 4;
     }
 
     public void CollidedWithChisel(Chisel chisel)
     {
-        if (chisel && hammerBody.velocity.magnitude >= requiredVelocity && movementDuration > 0.2f) // if it was moving at the right velocity
+        if (chisel && MovingFastEnough() && StartedFarEnoughAway(chisel.transform)) // if it was moving at the right velocity
         {
             recoilForceX = Mathf.Clamp(-hammerBody.velocity.x, -maxRecoil, maxRecoil);
             recoilForceY = Mathf.Clamp(-hammerBody.velocity.y, -maxRecoil, maxRecoil);
@@ -170,5 +175,7 @@ public class Hammer : MonoBehaviour
 
             GetComponent<AudioMan>().playRandomSound();
         }
+    
+     
     }
 }

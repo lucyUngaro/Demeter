@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -263,23 +263,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxSprites:
-  - {fileID: 21300000, guid: ee8d4aaa544074645b93c5454aeeda73, type: 3}
-  - {fileID: 21300000, guid: 1e8b1e61e2f2c904eb3995923b85ea83, type: 3}
-  - {fileID: 21300000, guid: b1af8f33b8958a842adc4748111c3e1a, type: 3}
-  - {fileID: 21300000, guid: dc5a5fc9b40b64441b79c5298f2477b6, type: 3}
-  - {fileID: 21300000, guid: e6dcb530053795447835e23f6b495bf6, type: 3}
-  - {fileID: 21300000, guid: dfba5309853a8734cadaff561ac2d923, type: 3}
-  - {fileID: 21300000, guid: 2b99ad8884b5bd145a6e80a339fc7692, type: 3}
-  - {fileID: 21300000, guid: 408a9840caec8344f9e24d4ad25b9a18, type: 3}
-  - {fileID: 21300000, guid: 2f65fd281b87dae48ad13aa5fc744e7b, type: 3}
-  - {fileID: 21300000, guid: e5cd51dcc136d9246a99268319f548ed, type: 3}
-  holdTimer: 0
+  - {fileID: 21300000, guid: 5076a4ba7d6baef47b213bf723b28653, type: 3}
+  - {fileID: 21300000, guid: 921b184122dd89a46b74359f7d719bf8, type: 3}
+  - {fileID: 21300000, guid: 531d36c772d808946b619ba58855d44a, type: 3}
+  - {fileID: 21300000, guid: 9ec841acd97bb7a49b0aa979dbd36300, type: 3}
+  - {fileID: 21300000, guid: 2c1fed3c2fdb17b48b6e98dd3addc627, type: 3}
+  - {fileID: 21300000, guid: 3df55e625c830c24f8a1edaf8197cc3b, type: 3}
+  boxBackSprites:
+  - {fileID: 21300000, guid: 3510e1f2e75fa5f4b868929ae803d5c3, type: 3}
+  - {fileID: 21300000, guid: 649f69f037933a54095142dad853b431, type: 3}
+  - {fileID: 21300000, guid: 7edb4d5cc1a098642b0280e8b7a7ca36, type: 3}
+  - {fileID: 21300000, guid: 480f23b8fe82194448d6935dc6a2bcbc, type: 3}
+  - {fileID: 21300000, guid: 8c655bdd3baa17a4da909cea357b45fb, type: 3}
+  - {fileID: 21300000, guid: f7f868c8afb029a479bb25bfb00e3fe2, type: 3}
+  boxBack: {fileID: 1249465878}
+  holdDuration: 1
   waitTimer: 0
   waitTimerDuration: 2
-  confirmed: 0
-  flying: 0
-  sent: 0
-  waiting: 0
   startPos: {x: 0, y: 0, z: 0}
   lerpPos: {x: 0, y: -5, z: -0.5}
   gameMan: {fileID: 1417483864}
@@ -318,7 +318,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -565691161
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ee8d4aaa544074645b93c5454aeeda73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -341,7 +341,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -14.45, z: -2.04}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
-  m_Children: []
+  m_Children:
+  - {fileID: 1249465879}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -412,7 +413,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -914427773
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 891cdd840c2472141982901262070566, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -719,13 +720,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorSensitivity: 0.1
-  maxVelocity: 15
-  minVelocity: 8
-  requiredVelocity: 13
-  maxRecoil: 25
+  maxRecoil: 30
   recoilDuration: 0.3
-  rotationThreshold: 8.5
-  acceleration: 2
+  acceleration: 4
   hammerStrike: {fileID: 21300000, guid: bf0778796d887d746a36233a7ff1f26e, type: 3}
   idle: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
   rocks: {fileID: 6248258587751960016}
@@ -764,7 +761,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 70500179
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2272,6 +2269,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1249465877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249465879}
+  - component: {fileID: 1249465878}
+  m_Layer: 0
+  m_Name: boxBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1249465878
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249465877}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1249465879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249465877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 155580275}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1417483863
 GameObject:
