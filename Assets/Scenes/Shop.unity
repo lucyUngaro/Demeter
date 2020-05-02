@@ -112,6 +112,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &291818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291820}
+  - component: {fileID: 291819}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &291819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7f9f5d5b1ac4f4683506a69a870717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlsTutorial: {fileID: 6682786523251133894, guid: c41b7f000ffc642209598d236c23bced,
+    type: 3}
+  boxTutorial: {fileID: 817752804645923535, guid: 6027897afd6f541b7a611b491a795a4d,
+    type: 3}
+--- !u!4 &291820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3108941, y: 8.534012, z: -0.06436271}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &69485480
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3581ef15de14b428f068f282be6756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chiselSpeed: 5
+  chiselSpeed: 8
   handShake: 0.2
 --- !u!212 &194838898
 SpriteRenderer:
@@ -434,8 +481,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194838895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.59, y: 0.11056, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -12, y: -7, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 69485481}
   - {fileID: 745290812}
@@ -723,6 +770,9 @@ MonoBehaviour:
   maxRecoil: 30
   recoilDuration: 0.3
   acceleration: 4
+  velocityRequiredToCollide: 1.1
+  idleTimeout: 0.3
+  minimumCollideDistance: 2
   hammerStrike: {fileID: 21300000, guid: bf0778796d887d746a36233a7ff1f26e, type: 3}
   idle: {fileID: 21300000, guid: b430c8c7b8dc83b47b433208ddd18126, type: 3}
   rocks: {fileID: 6248258587751960016}
@@ -782,8 +832,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371831302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31, y: -1.94, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 14, y: -6, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
@@ -1080,14 +1130,14 @@ MonoBehaviour:
     - sculpture: {fileID: 8125645464019301918, guid: c10ccb57622c13842b7304daca81b4af,
         type: 3}
       rubble: {fileID: 21300000, guid: f1ed800e1e199d642868e8aaaee2ae12, type: 3}
-      initialApproval: -3
+      initialApproval: -2
       prompt: {fileID: 0}
       positiveResponse: {fileID: 0}
       negativeResponse: {fileID: 0}
     - sculpture: {fileID: 6094826824033858105, guid: 41264d15cbc977e4b8581f7d515df4c2,
         type: 3}
       rubble: {fileID: 21300000, guid: f1ed800e1e199d642868e8aaaee2ae12, type: 3}
-      initialApproval: -3
+      initialApproval: -1
       prompt: {fileID: 21300000, guid: 85d020ff296fdc745a37a7b72e91b298, type: 3}
       positiveResponse: {fileID: 21300000, guid: 8b969c219a1212c4db5f6a65df5e3d97,
         type: 3}
@@ -1096,7 +1146,7 @@ MonoBehaviour:
     - sculpture: {fileID: 299178701515508432, guid: 7374f24a4b22757469b9e4796d4e187a,
         type: 3}
       rubble: {fileID: 21300000, guid: 5f91a1f8f5d8de649bdbede1230ac710, type: 3}
-      initialApproval: 0
+      initialApproval: 1
       prompt: {fileID: 21300000, guid: 935c73f8d5bd72f4ca81761083c130d6, type: 3}
       positiveResponse: {fileID: 21300000, guid: c5f47ea0c5605d64babcf3e41822b10a,
         type: 3}
@@ -1105,7 +1155,7 @@ MonoBehaviour:
     - sculpture: {fileID: 6531941407692132853, guid: c31a4262319697443a115899493ed17b,
         type: 3}
       rubble: {fileID: 21300000, guid: 7dc821db37e702e448a820cedc59119f, type: 3}
-      initialApproval: -3
+      initialApproval: -1
       prompt: {fileID: 21300000, guid: 5d20c6fa9df27a843a63931ae12f800e, type: 3}
       positiveResponse: {fileID: 21300000, guid: b0daa74e8b266ae4da289ec731a29896,
         type: 3}
@@ -1116,14 +1166,14 @@ MonoBehaviour:
       rubble: {fileID: 21300000, guid: 56a0f2eee88a3284e9eb5bae62233b63, type: 3}
       initialApproval: 0
       prompt: {fileID: 21300000, guid: 0480456f3d9507e40b48174341a2efd5, type: 3}
-      positiveResponse: {fileID: 21300000, guid: 658f2ddff865f3b45a6e5257900aa156,
+      positiveResponse: {fileID: 21300000, guid: efcf21a62b928754ea623410cedfbd32,
         type: 3}
-      negativeResponse: {fileID: 21300000, guid: efcf21a62b928754ea623410cedfbd32,
+      negativeResponse: {fileID: 21300000, guid: 658f2ddff865f3b45a6e5257900aa156,
         type: 3}
     - sculpture: {fileID: 7543320723208589689, guid: 6299844ae91f6eb4892cf0c0891f4121,
         type: 3}
       rubble: {fileID: 21300000, guid: 17391b00e343a2241a2780b5865249eb, type: 3}
-      initialApproval: -3
+      initialApproval: -4
       prompt: {fileID: 21300000, guid: b09fef1e719675e4abfeff67c8399f19, type: 3}
       positiveResponse: {fileID: 21300000, guid: 2696434acb7f3b144ac4fb5434f4350e,
         type: 3}
@@ -1134,7 +1184,7 @@ MonoBehaviour:
       eventValue: 2
       sprite: {fileID: 21300000, guid: 6168228b41a792b408916bc68d4368b8, type: 3}
     - eventType: 0
-      eventValue: 1
+      eventValue: 0
       sprite: {fileID: 21300000, guid: 02c7e0e266b3cb440b307fc81ef5f8b9, type: 3}
     - eventType: 0
       eventValue: 1
@@ -1154,6 +1204,156 @@ MonoBehaviour:
     - eventType: 1
       eventValue: 20
       sprite: {fileID: 21300000, guid: aba2c15334406514b96bb7d49ca3b155, type: 3}
+    - eventType: 3
+      eventValue: 20
+      sprite: {fileID: 21300000, guid: e1cb627fbee8a0448b5c9c85956c3ef7, type: 3}
+    - eventType: 2
+      eventValue: 20
+      sprite: {fileID: 21300000, guid: c75747a3808e05d44bbfeca89392d95e, type: 3}
+    - eventType: 2
+      eventValue: 20
+      sprite: {fileID: 21300000, guid: 2fd14e2d2baed8a419e27e2de423209b, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: b5153c6818559254c91421cce19ea713, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 29ccecddce2d88044a0fd036d1cde68c, type: 3}
+    - eventType: 0
+      eventValue: -100
+      sprite: {fileID: 21300000, guid: 9708e651b87a0944c889fff12bc5be91, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 8e64a411e1568ef40a32716d24d180be, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: a730a9221f7837f449e1b10afcb64271, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 6ca9571d07cd81b4ead2147f16922642, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 9f6151c24630ae54ca8a40738bcb7a97, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: 0cafc71bca862a34b9c20519467fd9cd, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: 5ea7b5ab7911ea544aa63cec334e250f, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: fa8cb4f10b672034a910f8bc8050e89e, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 3aac5aa82b60c564fbf1908c9f0ce6e4, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 76aef87d25e99e44b8cc744bd49938f3, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: db79b67540be8c74e881e24d67decd1b, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: f47ed2161619e6141a3a26d77e50c1dc, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 27aa95b952264ba468006a7b69749aca, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: a9df8044dd3f9b34dac7e2e373f62f88, type: 3}
+    - eventType: 0
+      eventValue: -100
+      sprite: {fileID: 21300000, guid: 8edf0f1a16909af4bb4649bd761ba60f, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: c3c4c1c4fd9059c4ba1ba3fe5619a7de, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 6168228b41a792b408916bc68d4368b8, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 8dd64ae95d90860468c138acafa501d3, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 8a10806d00eb435498f279fd7284b11d, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 4b216d16a58e7c041ade6b232f02326b, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 0276bc6443a303d4fb33b5c4d8de6479, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 8e7aa28cbfce1a54184cbb6bf9f9e3c5, type: 3}
+    - eventType: 0
+      eventValue: -5
+      sprite: {fileID: 21300000, guid: 603c1339ecad3234facf5985cce5a3f4, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: cd2f2b30f7e95be489c76f8082d95c3a, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 2531df48174cecb4ea9b60ee70d1f185, type: 3}
+    - eventType: 0
+      eventValue: 3
+      sprite: {fileID: 21300000, guid: 40bc630a9144c7e4396e3abd2e872188, type: 3}
+    - eventType: 0
+      eventValue: 2
+      sprite: {fileID: 21300000, guid: 3588e1b4d9d269e48b3811872928df6f, type: 3}
+    - eventType: 0
+      eventValue: -2
+      sprite: {fileID: 21300000, guid: 4a44a8d4afea80d47adaa2e3321ee799, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: a072e2e0b8f571b4c83d21064aa7e218, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: f913dfb9a221e694e94154c0336e6530, type: 3}
+    - eventType: 2
+      eventValue: 20
+      sprite: {fileID: 21300000, guid: 2fd14e2d2baed8a419e27e2de423209b, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: ad5f68c14afd8674db53592cb4ff8e08, type: 3}
+    - eventType: 0
+      eventValue: -2
+      sprite: {fileID: 21300000, guid: fd47aaacfe8193e41a7def4b53f5215d, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: 2e2020c3bd12e42468935242369080ba, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: fc9f235adaa5e0147938fe86f86f800b, type: 3}
+    - eventType: 0
+      eventValue: -1
+      sprite: {fileID: 21300000, guid: d949ea74698dcf444b6d78c5eb1518dc, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: e9bd17f24c871a94db0b0eb9c4dcaef1, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: 447e3289b6bdee14aac7fe2dcf7248fd, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: 4911f87d6a60977428fee1beb2f2a9bd, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: 539e49a8685179d4e8a3868babb738b9, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: fb41bd9f63f3153489bf1a0e80fc1ab0, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: 267d4a2d7245ba542963954862323df5, type: 3}
+    - eventType: 0
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: fd57f0570133b204180a94e9c5febdd4, type: 3}
+    - eventType: 0
+      eventValue: -100
+      sprite: {fileID: 21300000, guid: ca99698a42b61e142b32d18f77c75416, type: 3}
+    - eventType: 2
+      eventValue: 1
+      sprite: {fileID: 21300000, guid: f28481fa5f6677f4aacec457a873f669, type: 3}
 --- !u!4 &498150991
 Transform:
   m_ObjectHideFlags: 0
@@ -1162,7 +1362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498150989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.169145, y: -3.2063532, z: 0.074485004}
+  m_LocalPosition: {x: -9.169145, y: -9, z: 0.074485004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2379,6 +2579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scroll: {fileID: 5637413882710215310}
+  boxAnimation: {fileID: 155580273}
+  tutorialManager: {fileID: 291819}
   gameRunning: 0
 --- !u!4 &1417483865
 Transform:
@@ -22017,8 +22219,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -681414099
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

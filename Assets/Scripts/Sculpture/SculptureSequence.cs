@@ -69,7 +69,13 @@ public class SculptureSequence : MonoBehaviour
         {
             // no parts left, so destroy this sequence (TODO: play rubble anim)
             Destroy(gameObject);
-            gameObject.name = "DestroyMe";
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (gameObject.GetComponentInParent<Sculpture>())
+        {
             gameObject.GetComponentInParent<Sculpture>().SequenceComplete(this);
         }
     }

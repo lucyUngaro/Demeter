@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 /**
  *  A SculptablePart is one part (or image) in a SculptureSequence. When the hammer and chisel collide with it, it is destroyed, and the next part in the sequence is activated.
@@ -11,13 +12,6 @@ public class SculptablePart : MonoBehaviour
     private Vector2 prevPartPos;
 
     private bool isDirty = false;
-
-    private void Start()
-    {
-        transform.position = GameData.GlobalGameData.transform.position;
-        transform.rotation = GameData.GlobalGameData.transform.rotation;
-        transform.localScale = GameData.GlobalGameData.transform.scale;
-    }
 
     public void Awaken(Vector2 pos)
     {
@@ -30,6 +24,12 @@ public class SculptablePart : MonoBehaviour
             prevPartPos = pos;
             isDirty = true;
         }
+
+        transform.position = GameData.GlobalGameData.transform.position;
+        transform.rotation = GameData.GlobalGameData.transform.rotation;
+        transform.localScale = GameData.GlobalGameData.transform.scale;
+        transform.localPosition = Vector2.zero;
+
 
         FindObjectOfType<lightController>().AddSprite(GetComponent<SpriteRenderer>());
        

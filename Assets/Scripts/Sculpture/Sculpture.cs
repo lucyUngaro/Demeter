@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 /*
  * This class oversees all of the sequences of parts in this sculpture, handles special events that are triggered when certain parts are destroyed,
@@ -23,15 +25,34 @@ public class Sculpture : MonoBehaviour
     private float fallDistance;
     private float fallDestination;
     private float startTime;
+    private float fallDelay;
+    private bool tweenedIn = false;
+    private float originalY;
+    private GameObject rubble;
 
     private Manager manager;
 
-    public void Init(SculptureSettings ss, Manager man)
+    public void Init(SculptureSettings ss, Manager man, int statueNum)
     {
         thisSculpture = ss;
         approval = thisSculpture.initialApproval;
         manager = man;
-        InitSequences(transform);    
+  
+        if (statueNum == 0)
+        {
+            tweenedIn = true;
+        }
+    }
+
+    private void Start()
+    {
+        originalY = transform.position.y;
+
+        if (!tweenedIn)
+        {
+            transform.position = new Vector2(transform.position.x, 30);
+        }
+        InitSequences(transform);
     }
 
     private void InitSequences (Transform parent)
@@ -61,13 +82,16 @@ public class Sculpture : MonoBehaviour
         switch (gameEvent.eventType)
         {
             case GameEvent.eventTypes.fall:
-                Fall(gameEvent.eventValue);
+                Fall(gameEvent.eventValue, 0);
                 break;
             case GameEvent.eventTypes.points:
                 UpdateApproval(gameEvent.eventValue);
                 break;
-            case GameEvent.eventTypes.tutorialComplete:
-                manager.DestroyTutorial();
+            case GameEvent.eventTypes.controlsTutorialComplete:
+                manager.CompleteControlsTutorial();
+                break;
+            case GameEvent.eventTypes.boxTutorial:
+                manager.StartBoxTutorial();
                 break;
 
 
@@ -94,32 +118,74 @@ public class Sculpture : MonoBehaviour
                 falling = false;
             }
         }
+
+        if (fallDelay > 0)
+        {
+            fallDelay -= Time.deltaTime;
+
+            if (fallDelay <= 0)
+            {
+                fallDelay = 0;
+                falling = true;
+            }
+        }    
     }
 
-    private void CheckSculptureComplete ()
+    private void FixedUpdate()
     {
-        if (sequences.Count == 0 || sequences[0].gameObject.name != "sequenceBase") // sculpture has been destroyed, add rubble
+        if (!tweenedIn)
         {
-            manager.OnSculptureComplete();
-            GameObject rubble = Instantiate(new GameObject(), GameData.GlobalGameData.transform.position, GameData.GlobalGameData.transform.rotation, transform);
-            rubble.AddComponent<SpriteRenderer>().sprite = thisSculpture.rubble;
+            tweenedIn = true;
+            transform.position = new Vector2(transform.position.x, 30);
+            transform.DOMoveY(originalY, 1f).SetDelay(0.1f);
         }
 
     }
 
-  
+    private void CheckSculptureComplete ()
+    {
+        if (sequences.Count == 0) // sculpture has been destroyed, add rubble
+        {
+            manager.OnSculptureComplete();
+            rubble = Instantiate(new GameObject(), GameData.GlobalGameData.transform.position, GameData.GlobalGameData.transform.rotation, transform);
+            rubble.AddComponent<SpriteRenderer>().sprite = thisSculpture.rubble;
+
+
+            FindObjectOfType<lightController>().AddSprite(rubble.GetComponent<SpriteRenderer>());
+        }
+
+    }
+
+    public void DestroySculpture()
+    {
+        if (rubble != null)
+        {
+            FindObjectOfType<lightController>().RemoveSprite(rubble.GetComponent<SpriteRenderer>());
+        }
+
+        Destroy(gameObject);
+    }
+
     // Approval points are gained or lost based on what parts are destroyed
     private void UpdateApproval(int points)
     {
         approval += points;
     }
 
-    private void Fall(float value)
+    private void Fall(float value, float delay)
     {
         fallDistance = value;
         fallDestination = transform.position.y - value;
-        falling = true;
         startTime = Time.time;
         fallAmount = value;
+
+        if (delay > 0)
+        {
+            fallDelay = delay;
+        }
+        else
+        {
+            falling = true;
+        }
     }
 }

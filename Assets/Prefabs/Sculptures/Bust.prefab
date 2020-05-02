@@ -474,6 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299178701515508439}
+  - component: {fileID: 114625241594148902}
   m_Layer: 0
   m_Name: Bust
   m_TagString: Untagged
@@ -489,13 +490,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299178701515508432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8809915, y: 2.1422145, z: 0.2681748}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 299178701472765563}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114625241594148902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299178701515508432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86948f6b618f11d46943b19c64915fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequences: []
+  approval: 0
 --- !u!1 &299178701727325192
 GameObject:
   m_ObjectHideFlags: 0
